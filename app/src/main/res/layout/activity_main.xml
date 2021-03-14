@@ -127,8 +127,8 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/pb_logo" />
+        app:layout_constraintTop_toTopOf="parent"/>
+        //app:srcCompat="@drawable/pb_logo" />
 
 
     <!-- drawable/logo.xml -->
@@ -186,11 +186,9 @@
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
 
-    <!-- text1 -->
-    <TextView
-        android:id="@+id/register_bu"
-        android:layout_width="138.72dp"
-        android:layout_height="31dp"
+    <!-- text1 --><![CDATA[
+    -->
+        android:layout_height="wrap_content"-->
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="#00000000"
@@ -200,19 +198,30 @@
         app:layout_constraintTop_toBottomOf="@+id/text1"
         tools:text="@string/Log_but_sign_up" />
 
-    <!--
+    ]]><!--
       Font family: Oxygen Mono
       Line height: 26sp
     -->
     <!-- styles.xml -->
+    <Button
+        android:id="@+id/register_bu"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:text="@string/Log_but_sign_up"
+        app:layout_constraintBottom_toTopOf="@+id/privacy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1" />
+
     <TextView
         android:id="@+id/text1"
         android:layout_width="277dp"
         android:layout_height="26dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:gravity="top"
+        android:layout_marginTop="16dp"
         android:text="@string/Log_text1"
+        android:textAlignment="center"
         android:textAppearance="@style/text1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
