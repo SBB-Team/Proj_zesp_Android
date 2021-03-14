@@ -6,14 +6,365 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+<!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Hello World!"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.498"-->
+<!--        app:layout_constraintLeft_toLeftOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!-- Background -->
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="410dp"
+        android:layout_height="730dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-24dp"
+<!--        /*android:background="@drawable/background"-->
+        />
+
+
+    <!-- drawable/background.xml -->
+    <vector
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="410dp"
+        android:height="730dp"
+        android:viewportWidth="410"
+        android:viewportHeight="730"
+        >
+
+        <group>
+
+            <clip-path
+                android:pathData="M0 0H410V730H0V0Z"
+                />
+
+            <group
+                android:translateX="1"
+                android:translateY="0"
+                android:pivotX="205"
+                android:pivotY="365"
+                android:scaleX="2"
+                android:scaleY="2"
+                android:rotation="90"
+                >
+
+                <path
+                    android:pathData="M0 0V730H410V0"
+                    >
+
+                    <aapt:attr name="android:fillColor">
+
+                        <gradient
+                            android:type="linear"
+                            android:startX="102.5"
+                            android:startY="365"
+                            android:endX="307.5"
+                            android:endY="365"
+                            >
+
+                            <item
+                                android:color="#00FFFFFF"
+                                android:offset="0"
+                                />
+
+                            <item
+                                android:color="#8BBAFF"
+                                android:offset="1"
+                                />
+
+                        </gradient>
+
+                    </aapt:attr>
+
+                </path>
+
+            </group>
+
+        </group>
+
+    </vector>
+
+
+
+    <!-- password -->
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="321dp"
+        android:layout_height="55dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="326dp"
+        android:background="#00000000"
+        />
+
+
+
+
+    <!-- logo -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="486dp"
+        android:layout_height="274dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="-46dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="-42dp"
+        android:background="@drawable/logo"
+        />
+
+
+    <!-- drawable/logo.xml -->
+    <vector
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="486dp"
+        android:height="274dp"
+        android:viewportWidth="486"
+        android:viewportHeight="274"
+        >
+
+        <group>
+
+            <clip-path
+                android:pathData="M0 0H486V274H0V0Z"
+                />
+
+        </group>
+
+    </vector>
+
+
+
+    <!-- email -->
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="321dp"
+        android:layout_height="47dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="241dp"
+        android:background="#00000000"
+        />
+
+
+
+
+    <!-- Login button -->
+    <View
+        android:id="@+id/login_butto"
+        android:layout_width="144.72dp"
+        android:layout_height="55dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="133dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="451dp"
+        android:background="#00000000"
+        />
+
+
+
+
+    <!-- register button -->
+    <View
+        android:id="@+id/register_bu"
+        android:layout_width="138.72dp"
+        android:layout_height="31dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="155dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="576dp"
+        android:background="#00000000"
+        />
+
+
+
+
+    <!-- text1 -->
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/text1"
+        android:layout_width="277dp"
+        android:layout_height="26dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="79dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="530dp"
+        android:text="@string/text1"
+        android:textAppearance="@style/text1"
+        android:gravity="top"
+        />
+
+    <!--
+      Font family: Oxygen Mono
+      Line height: 26sp
+    -->
+    <!-- styles.xml -->
+    <style name="text1">
+
+        <item name="android:textSize">
+            20sp
+        </item>
+
+        <item name="android:textColor">
+            #000000
+        </item>
+
+        <item name="android:shadowColor">
+            #40000000
+        </item>
+
+        <item name="android:shadowDx">
+            0
+        </item>
+
+        <item name="android:shadowDy">
+            4
+        </item>
+
+        <item name="android:shadowRadius">
+            4
+        </item>
+
+    </style>
+
+
+    <!-- strings.xml -->
+    <string name="text1">
+
+        Don`t have an account ?
+    </string>
+
+
+
+
+    <!-- mail icon png 1 -->
+    <View
+        android:id="@+id/mail_icon_p"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="310dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="247dp"
+        android:background="@drawable/mail_icon_p"
+        />
+
+
+    <!-- drawable/mail_icon_p.xml -->
+    <vector
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="50dp"
+        android:height="35dp"
+        android:viewportWidth="50"
+        android:viewportHeight="35"
+        >
+
+        <group>
+
+            <clip-path
+                android:pathData="M0 0H50V35H0V0Z"
+                />
+
+        </group>
+
+    </vector>
+
+
+
+    <!-- lock-icon-11 1 -->
+    <View
+        android:id="@+id/lock_icon_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="310dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="326dp"
+        android:background="@drawable/lock_icon_1"
+        />
+
+
+    <!-- drawable/lock_icon_1.xml -->
+    <vector
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="50dp"
+        android:height="50dp"
+        android:viewportWidth="50"
+        android:viewportHeight="50"
+        >
+
+        <group>
+
+            <clip-path
+                android:pathData="M0 0H50V50H0V0Z"
+                />
+
+        </group>
+
+    </vector>
+
+
+
+    <!-- Line 4 -->
+    <View
+        android:id="@+id/line_4"
+        android:layout_width="103dp"
+        android:layout_height="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="155dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="607dp"
+        android:background="@drawable/line_4"
+        />
+
+
+    <!-- drawable/line_4.xml -->
+    <vector
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="104dp"
+        android:height="1dp"
+        android:viewportWidth="104"
+        android:viewportHeight="1"
+        >
+
+        <group>
+
+            <clip-path
+                android:pathData="M0.5 0.5H103.5H0.5Z"
+                />
+
+        </group>
+
+        <path
+            android:pathData="M0.5 0.5H103.5H0.5Z"
+            android:strokeWidth="1"
+            android:strokeColor="#000000"
+            />
+
+    </vector>
+
+
+
+    <!-- Privacy -->
+    <View
+        android:id="@+id/privacy"
+        android:layout_width="410dp"
+        android:layout_height="33dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="673dp"
+        android:background="#00000000"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
