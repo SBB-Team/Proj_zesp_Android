@@ -3,4 +3,5 @@
     <string name="Log_text1">Don`t have an account ?</string>
     <string name="Log_but_sign_in">Sign in</string>
     <string name="Log_but_sign_up"><u>Sign up</u></string>
+    <string name="privacy_tex">Privacy and policy</string>
 </resources>

@@ -42,4 +42,36 @@
         </item>
 
     </style>
+
+    <!-- privacy and policy -->
+    <style name="privacy_tex">
+
+        <item name="android:textSize">
+            18sp
+        </item>
+
+        <item name="android:textColor">
+            #FFFFFF
+        </item>
+
+    </style>
+
+    <vector
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:aapt="http://schemas.android.com/aapt"
+        android:width="486dp"
+        android:height="274dp"
+        android:viewportWidth="486"
+        android:viewportHeight="274"
+        >
+
+        <group>
+
+            <clip-path
+                android:pathData="M0 0H486V274H0V0Z"
+                />
+
+        </group>
+
+    </vector>
 </resources>
