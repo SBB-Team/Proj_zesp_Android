@@ -4,6 +4,6 @@
     <string name="Log_but_sign_in">Sign in</string>
     <string name="Log_but_sign_up"><u>Sign up</u></string>
     <string name="privacy_tex">Privacy and policy</string>
-    <string name="email">E-mail</string>
-    <string name="password">Password</string>
+    <string name="email"><b>E-mail</b></string>
+    <string name="password"><b>Password</b></string>
 </resources>
