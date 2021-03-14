@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "716082719316",
+    "project_id": "proj-zesp-stacja-paliw-a784f",
+    "storage_bucket": "proj-zesp-stacja-paliw-a784f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:716082719316:android:9e57d47e04419d340d9bc1",
+        "android_client_info": {
+          "package_name": "com.example.proj_zesp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "716082719316-c5r95no1ccd4pqr50c1um8qh571ggsn3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.proj_zesp",
+            "certificate_hash": "4c1305bf91879db4cf23ba3f8483a370721b541f"
+          }
+        },
+        {
+          "client_id": "716082719316-bkgg7sa7nbforrnq951infthouafc6c9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCQrxv-lwAgguJUfvIxIm4f12MeYJFsIs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "716082719316-bkgg7sa7nbforrnq951infthouafc6c9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
