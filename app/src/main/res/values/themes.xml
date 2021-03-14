@@ -56,22 +56,22 @@
 
     </style>
 
-    <vector
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:aapt="http://schemas.android.com/aapt"
-        android:width="486dp"
-        android:height="274dp"
-        android:viewportWidth="486"
-        android:viewportHeight="274"
-        >
+<!--    <vector-->
+<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        xmlns:aapt="http://schemas.android.com/aapt"-->
+<!--        android:width="486dp"-->
+<!--        android:height="274dp"-->
+<!--        android:viewportWidth="486"-->
+<!--        android:viewportHeight="274"-->
+<!--        >-->
 
-        <group>
+<!--        <group>-->
 
-            <clip-path
-                android:pathData="M0 0H486V274H0V0Z"
-                />
+<!--            <clip-path-->
+<!--                android:pathData="M0 0H486V274H0V0Z"-->
+<!--                />-->
 
-        </group>
+<!--        </group>-->
 
-    </vector>
+<!--    </vector>-->
 </resources>

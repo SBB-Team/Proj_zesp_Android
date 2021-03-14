@@ -331,7 +331,7 @@
 
 
     <!-- Privacy -->
-    <View
+    <ImageView
         android:id="@+id/privacy"
         android:layout_width="410dp"
         android:layout_height="33dp"
@@ -340,20 +340,10 @@
         android:background="#00000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/privacy_background" />
 
     <!-- privacy text -->
-    <Button
-        android:id="@+id/privacy_tex"
-        android:layout_width="195dp"
-        android:layout_height="24dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:gravity="top"
-        android:text="@string/privacy_tex"
-        android:textAppearance="@style/privacy_tex"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="698dp" />
 
     <!--
       Font family: Oxygen Mono
