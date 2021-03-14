@@ -107,9 +107,12 @@
         android:layout_height="55dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="407dp" />
+        android:hint="Password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <ImageView
         android:id="@+id/logo"
@@ -117,7 +120,7 @@
         android:layout_height="274dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/logo"
+        android:background="@drawable/pb_logo"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -157,9 +160,12 @@
         android:layout_height="47dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="328dp" />
+        android:hint="e-mail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 
 
     <!-- register button -->
@@ -169,21 +175,27 @@
         android:layout_height="55dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="494dp" />
+        android:text="@string/Log_but_sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
 
     <!-- text1 -->
-    <View
+    <TextView
         android:id="@+id/register_bu"
         android:layout_width="138.72dp"
         android:layout_height="31dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="132dp"
-        tools:layout_editor_absoluteY="618dp" />
+        app:layout_constraintBottom_toTopOf="@+id/privacy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1"
+        tools:text="@string/Log_but_sign_up" />
 
     <!--
       Font family: Oxygen Mono
@@ -197,55 +209,46 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:gravity="top"
-        android:text="@string/text1"
+        android:text="@string/Log_text1"
         android:textAppearance="@style/text1"
-        tools:layout_editor_absoluteX="67dp"
-        tools:layout_editor_absoluteY="575dp" />
-
-
-
-
-    <!-- strings.xml -->
-    <string name="text1">
-
-        Don`t have an account ?
-    </string>
-
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_butto" />
 
 
     <!-- mail icon png 1 -->
 
 
     <!-- drawable/mail_icon_p.xml -->
-    <View
+    <ImageView
         android:id="@+id/mail_icon_p"
         android:layout_width="50dp"
         android:layout_height="35dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/mail_icon_p"
-        tools:layout_editor_absoluteX="316dp"
-        tools:layout_editor_absoluteY="328dp" />
+        android:background="@drawable/mail_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="@+id/email"
+        app:layout_constraintTop_toTopOf="@+id/email" />
 
-    <vector
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:aapt="http://schemas.android.com/aapt"
-        android:width="50dp"
-        android:height="35dp"
-        android:viewportWidth="50"
-        android:viewportHeight="35"
-        >
+<!--    <vector-->
+<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        xmlns:aapt="http://schemas.android.com/aapt"-->
+<!--        android:width="50dp"-->
+<!--        android:height="35dp"-->
+<!--        android:viewportWidth="50"-->
+<!--        android:viewportHeight="35"-->
+<!--        >-->
 
-        <group>
+<!--        <group>-->
 
-            <clip-path
-                android:pathData="M0 0H50V35H0V0Z"
-                />
+<!--            <clip-path-->
+<!--                android:pathData="M0 0H50V35H0V0Z"-->
+<!--                />-->
 
-        </group>
+<!--        </group>-->
 
-    </vector>
+<!--    </vector>-->
 
 
 
@@ -253,75 +256,76 @@
 
 
     <!-- drawable/lock_icon_1.xml -->
-    <View
+    <ImageView
         android:id="@+id/lock_icon_1"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:background="@drawable/lock_icon_1"
-        tools:layout_editor_absoluteX="316dp"
-        tools:layout_editor_absoluteY="407dp" />
+        android:background="@drawable/lock_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintTop_toTopOf="@+id/password" />
 
-    <vector
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:aapt="http://schemas.android.com/aapt"
-        android:width="50dp"
-        android:height="50dp"
-        android:viewportWidth="50"
-        android:viewportHeight="50"
-        >
+<!--    <vector-->
+<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        xmlns:aapt="http://schemas.android.com/aapt"-->
+<!--        android:width="50dp"-->
+<!--        android:height="50dp"-->
+<!--        android:viewportWidth="50"-->
+<!--        android:viewportHeight="50"-->
+<!--        >-->
 
-        <group>
+<!--        <group>-->
 
-            <clip-path
-                android:pathData="M0 0H50V50H0V0Z"
-                />
+<!--            <clip-path-->
+<!--                android:pathData="M0 0H50V50H0V0Z"-->
+<!--                />-->
 
-        </group>
+<!--        </group>-->
 
-    </vector>
-
-
-
-    <!-- Line 4 -->
-    <View
-        android:id="@+id/line_4"
-        android:layout_width="103dp"
-        android:layout_height="0dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="155dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="607dp"
-        android:background="@drawable/line_4"
-        />
+<!--    </vector>-->
 
 
-    <!-- drawable/line_4.xml -->
-    <vector
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:aapt="http://schemas.android.com/aapt"
-        android:width="104dp"
-        android:height="1dp"
-        android:viewportWidth="104"
-        android:viewportHeight="1"
-        >
 
-        <group>
+<!--    &lt;!&ndash; Line 4 &ndash;&gt;-->
+<!--    <View-->
+<!--        android:id="@+id/line_4"-->
+<!--        android:layout_width="103dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_marginLeft="155dp"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginTop="607dp"-->
+<!--        android:background="@drawable/line_4"-->
+<!--        />-->
 
-            <clip-path
-                android:pathData="M0.5 0.5H103.5H0.5Z"
-                />
 
-        </group>
+<!--    &lt;!&ndash; drawable/line_4.xml &ndash;&gt;-->
+<!--    <vector-->
+<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        xmlns:aapt="http://schemas.android.com/aapt"-->
+<!--        android:width="104dp"-->
+<!--        android:height="1dp"-->
+<!--        android:viewportWidth="104"-->
+<!--        android:viewportHeight="1"-->
+<!--        >-->
 
-        <path
-            android:pathData="M0.5 0.5H103.5H0.5Z"
-            android:strokeWidth="1"
-            android:strokeColor="#000000"
-            />
+<!--        <group>-->
 
-    </vector>
+<!--            <clip-path-->
+<!--                android:pathData="M0.5 0.5H103.5H0.5Z"-->
+<!--                />-->
+
+<!--        </group>-->
+
+<!--        <path-->
+<!--            android:pathData="M0.5 0.5H103.5H0.5Z"-->
+<!--            android:strokeWidth="1"-->
+<!--            android:strokeColor="#000000"-->
+<!--            />-->
+
+<!--    </vector>-->
 
 
 
@@ -333,8 +337,9 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:background="#00000000"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="698dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
