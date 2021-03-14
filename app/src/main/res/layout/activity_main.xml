@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background_gradient">
 
 <!--    <TextView-->
 <!--        android:layout_width="wrap_content"-->
@@ -16,223 +17,192 @@
 <!--        app:layout_constraintRight_toRightOf="parent"-->
 <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <!-- Background -->
-    <ImageView
-        android:id="@+id/background"
-        android:layout_width="410dp"
-        android:layout_height="730dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="-24dp"
-<!--        /*android:background="@drawable/background"-->
-        />
+<!--    &lt;!&ndash; Background &ndash;&gt;-->
+<!--    <ImageView-->
+<!--        android:id="@+id/background"-->
+<!--        android:layout_width="410dp"-->
+<!--        android:layout_height="730dp"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_marginEnd="1dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+<!--&lt;!&ndash;        /*android:background="@drawable/background"&ndash;&gt;-->
+
 
 
     <!-- drawable/background.xml -->
-    <vector
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:aapt="http://schemas.android.com/aapt"
-        android:width="410dp"
-        android:height="730dp"
-        android:viewportWidth="410"
-        android:viewportHeight="730"
-        >
+<!--    <vector-->
+<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        xmlns:aapt="http://schemas.android.com/aapt"-->
+<!--        android:width="410dp"-->
+<!--        android:height="730dp"-->
+<!--        android:viewportWidth="410"-->
+<!--        android:viewportHeight="730"-->
+<!--        >-->
 
-        <group>
+<!--        <group>-->
 
-            <clip-path
-                android:pathData="M0 0H410V730H0V0Z"
-                />
+<!--            <clip-path-->
+<!--                android:pathData="M0 0H410V730H0V0Z"-->
+<!--                />-->
 
-            <group
-                android:translateX="1"
-                android:translateY="0"
-                android:pivotX="205"
-                android:pivotY="365"
-                android:scaleX="2"
-                android:scaleY="2"
-                android:rotation="90"
-                >
+<!--            <group-->
+<!--                android:translateX="1"-->
+<!--                android:translateY="0"-->
+<!--                android:pivotX="205"-->
+<!--                android:pivotY="365"-->
+<!--                android:scaleX="2"-->
+<!--                android:scaleY="2"-->
+<!--                android:rotation="90"-->
+<!--                >-->
 
-                <path
-                    android:pathData="M0 0V730H410V0"
-                    >
+<!--                <path-->
+<!--                    android:pathData="M0 0V730H410V0"-->
+<!--                    >-->
 
-                    <aapt:attr name="android:fillColor">
+<!--                    <aapt:attr name="android:fillColor">-->
 
-                        <gradient
-                            android:type="linear"
-                            android:startX="102.5"
-                            android:startY="365"
-                            android:endX="307.5"
-                            android:endY="365"
-                            >
+<!--                        <gradient-->
+<!--                            android:type="linear"-->
+<!--                            android:startX="102.5"-->
+<!--                            android:startY="365"-->
+<!--                            android:endX="307.5"-->
+<!--                            android:endY="365"-->
+<!--                            >-->
 
-                            <item
-                                android:color="#00FFFFFF"
-                                android:offset="0"
-                                />
+<!--                            <item-->
+<!--                                android:color="#00FFFFFF"-->
+<!--                                android:offset="0"-->
+<!--                                />-->
 
-                            <item
-                                android:color="#8BBAFF"
-                                android:offset="1"
-                                />
+<!--                            <item-->
+<!--                                android:color="#8BBAFF"-->
+<!--                                android:offset="1"-->
+<!--                                />-->
 
-                        </gradient>
+<!--                        </gradient>-->
 
-                    </aapt:attr>
+<!--                    </aapt:attr>-->
 
-                </path>
+<!--                </path>-->
 
-            </group>
+<!--            </group>-->
 
-        </group>
+<!--        </group>-->
 
-    </vector>
+<!--    </vector>-->
 
 
 
     <!-- password -->
+
+
+    <!-- logo -->
     <EditText
         android:id="@+id/password"
         android:layout_width="321dp"
         android:layout_height="55dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="326dp"
         android:background="#00000000"
-        />
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="407dp" />
 
-
-
-
-    <!-- logo -->
     <ImageView
         android:id="@+id/logo"
         android:layout_width="486dp"
         android:layout_height="274dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="-46dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="-42dp"
         android:background="@drawable/logo"
-        />
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/pb_logo" />
 
 
     <!-- drawable/logo.xml -->
-    <vector
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:aapt="http://schemas.android.com/aapt"
-        android:width="486dp"
-        android:height="274dp"
-        android:viewportWidth="486"
-        android:viewportHeight="274"
-        >
+<!--    <vector-->
+<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        xmlns:aapt="http://schemas.android.com/aapt"-->
+<!--        android:width="486dp"-->
+<!--        android:height="274dp"-->
+<!--        android:viewportWidth="486"-->
+<!--        android:viewportHeight="274"-->
+<!--        >-->
 
-        <group>
+<!--        <group>-->
 
-            <clip-path
-                android:pathData="M0 0H486V274H0V0Z"
-                />
+<!--            <clip-path-->
+<!--                android:pathData="M0 0H486V274H0V0Z"-->
+<!--                />-->
 
-        </group>
+<!--        </group>-->
 
-    </vector>
+<!--    </vector>-->
 
 
 
     <!-- email -->
+
+
+    <!-- Login button -->
     <EditText
         android:id="@+id/email"
         android:layout_width="321dp"
         android:layout_height="47dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="241dp"
         android:background="#00000000"
-        />
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="328dp" />
 
 
-
-
-    <!-- Login button -->
-    <View
+    <!-- register button -->
+    <Button
         android:id="@+id/login_butto"
         android:layout_width="144.72dp"
         android:layout_height="55dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="133dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="451dp"
         android:background="#00000000"
-        />
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="494dp" />
 
 
-
-
-    <!-- register button -->
+    <!-- text1 -->
     <View
         android:id="@+id/register_bu"
         android:layout_width="138.72dp"
         android:layout_height="31dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="155dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="576dp"
         android:background="#00000000"
-        />
-
-
-
-
-    <!-- text1 -->
-    <TextView
-        android:id="@+id/text1"
-        android:layout_width="277dp"
-        android:layout_height="26dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="79dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="530dp"
-        android:text="@string/text1"
-        android:textAppearance="@style/text1"
-        android:gravity="top"
-        />
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="618dp" />
 
     <!--
       Font family: Oxygen Mono
       Line height: 26sp
     -->
     <!-- styles.xml -->
-    <style name="text1">
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="277dp"
+        android:layout_height="26dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:gravity="top"
+        android:text="@string/text1"
+        android:textAppearance="@style/text1"
+        tools:layout_editor_absoluteX="67dp"
+        tools:layout_editor_absoluteY="575dp" />
 
-        <item name="android:textSize">
-            20sp
-        </item>
 
-        <item name="android:textColor">
-            #000000
-        </item>
-
-        <item name="android:shadowColor">
-            #40000000
-        </item>
-
-        <item name="android:shadowDx">
-            0
-        </item>
-
-        <item name="android:shadowDy">
-            4
-        </item>
-
-        <item name="android:shadowRadius">
-            4
-        </item>
-
-    </style>
 
 
     <!-- strings.xml -->
@@ -245,19 +215,19 @@
 
 
     <!-- mail icon png 1 -->
+
+
+    <!-- drawable/mail_icon_p.xml -->
     <View
         android:id="@+id/mail_icon_p"
         android:layout_width="50dp"
         android:layout_height="35dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="310dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="247dp"
         android:background="@drawable/mail_icon_p"
-        />
+        tools:layout_editor_absoluteX="316dp"
+        tools:layout_editor_absoluteY="328dp" />
 
-
-    <!-- drawable/mail_icon_p.xml -->
     <vector
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:aapt="http://schemas.android.com/aapt"
@@ -280,19 +250,19 @@
 
 
     <!-- lock-icon-11 1 -->
+
+
+    <!-- drawable/lock_icon_1.xml -->
     <View
         android:id="@+id/lock_icon_1"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="310dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="326dp"
         android:background="@drawable/lock_icon_1"
-        />
+        tools:layout_editor_absoluteX="316dp"
+        tools:layout_editor_absoluteY="407dp" />
 
-
-    <!-- drawable/lock_icon_1.xml -->
     <vector
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:aapt="http://schemas.android.com/aapt"
@@ -362,9 +332,9 @@
         android:layout_height="33dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="673dp"
         android:background="#00000000"
-        />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="698dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
