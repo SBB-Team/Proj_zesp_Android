@@ -4,97 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/background_gradient">
+    android:background="@drawable/background_gradient"
+    tools:context=".MainActivity">
 
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Hello World!"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--    <TextView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Hello World!"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.498"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--    &lt;!&ndash; Background &ndash;&gt;-->
-<!--    <ImageView-->
-<!--        android:id="@+id/background"-->
-<!--        android:layout_width="410dp"-->
-<!--        android:layout_height="730dp"-->
-<!--        android:layout_alignParentLeft="true"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_marginEnd="1dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-<!--&lt;!&ndash;        /*android:background="@drawable/background"&ndash;&gt;-->
-
+    <!--    &lt;!&ndash; Background &ndash;&gt;-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/background"-->
+    <!--        android:layout_width="410dp"-->
+    <!--        android:layout_height="730dp"-->
+    <!--        android:layout_alignParentLeft="true"-->
+    <!--        android:layout_alignParentTop="true"-->
+    <!--        android:layout_marginEnd="1dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+    <!--&lt;!&ndash;        /*android:background="@drawable/background"&ndash;&gt;-->
 
 
     <!-- drawable/background.xml -->
-<!--    <vector-->
-<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--        xmlns:aapt="http://schemas.android.com/aapt"-->
-<!--        android:width="410dp"-->
-<!--        android:height="730dp"-->
-<!--        android:viewportWidth="410"-->
-<!--        android:viewportHeight="730"-->
-<!--        >-->
+    <!--    <vector-->
+    <!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--        xmlns:aapt="http://schemas.android.com/aapt"-->
+    <!--        android:width="410dp"-->
+    <!--        android:height="730dp"-->
+    <!--        android:viewportWidth="410"-->
+    <!--        android:viewportHeight="730"-->
+    <!--        >-->
 
-<!--        <group>-->
+    <!--        <group>-->
 
-<!--            <clip-path-->
-<!--                android:pathData="M0 0H410V730H0V0Z"-->
-<!--                />-->
+    <!--            <clip-path-->
+    <!--                android:pathData="M0 0H410V730H0V0Z"-->
+    <!--                />-->
 
-<!--            <group-->
-<!--                android:translateX="1"-->
-<!--                android:translateY="0"-->
-<!--                android:pivotX="205"-->
-<!--                android:pivotY="365"-->
-<!--                android:scaleX="2"-->
-<!--                android:scaleY="2"-->
-<!--                android:rotation="90"-->
-<!--                >-->
+    <!--            <group-->
+    <!--                android:translateX="1"-->
+    <!--                android:translateY="0"-->
+    <!--                android:pivotX="205"-->
+    <!--                android:pivotY="365"-->
+    <!--                android:scaleX="2"-->
+    <!--                android:scaleY="2"-->
+    <!--                android:rotation="90"-->
+    <!--                >-->
 
-<!--                <path-->
-<!--                    android:pathData="M0 0V730H410V0"-->
-<!--                    >-->
+    <!--                <path-->
+    <!--                    android:pathData="M0 0V730H410V0"-->
+    <!--                    >-->
 
-<!--                    <aapt:attr name="android:fillColor">-->
+    <!--                    <aapt:attr name="android:fillColor">-->
 
-<!--                        <gradient-->
-<!--                            android:type="linear"-->
-<!--                            android:startX="102.5"-->
-<!--                            android:startY="365"-->
-<!--                            android:endX="307.5"-->
-<!--                            android:endY="365"-->
-<!--                            >-->
+    <!--                        <gradient-->
+    <!--                            android:type="linear"-->
+    <!--                            android:startX="102.5"-->
+    <!--                            android:startY="365"-->
+    <!--                            android:endX="307.5"-->
+    <!--                            android:endY="365"-->
+    <!--                            >-->
 
-<!--                            <item-->
-<!--                                android:color="#00FFFFFF"-->
-<!--                                android:offset="0"-->
-<!--                                />-->
+    <!--                            <item-->
+    <!--                                android:color="#00FFFFFF"-->
+    <!--                                android:offset="0"-->
+    <!--                                />-->
 
-<!--                            <item-->
-<!--                                android:color="#8BBAFF"-->
-<!--                                android:offset="1"-->
-<!--                                />-->
+    <!--                            <item-->
+    <!--                                android:color="#8BBAFF"-->
+    <!--                                android:offset="1"-->
+    <!--                                />-->
 
-<!--                        </gradient>-->
+    <!--                        </gradient>-->
 
-<!--                    </aapt:attr>-->
+    <!--                    </aapt:attr>-->
 
-<!--                </path>-->
+    <!--                </path>-->
 
-<!--            </group>-->
+    <!--            </group>-->
 
-<!--        </group>-->
+    <!--        </group>-->
 
-<!--    </vector>-->
-
+    <!--    </vector>-->
 
 
     <!-- password -->
@@ -128,30 +126,29 @@
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-<!--        app:srcCompat="@drawable/pb_logo_xml"/>-->
+        app:layout_constraintTop_toTopOf="parent" />
+    <!--        app:srcCompat="@drawable/pb_logo_xml"/>-->
 
 
     <!-- drawable/logo.xml -->
-<!--    <vector-->
-<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--        xmlns:aapt="http://schemas.android.com/aapt"-->
-<!--        android:width="486dp"-->
-<!--        android:height="274dp"-->
-<!--        android:viewportWidth="486"-->
-<!--        android:viewportHeight="274"-->
-<!--        >-->
+    <!--    <vector-->
+    <!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--        xmlns:aapt="http://schemas.android.com/aapt"-->
+    <!--        android:width="486dp"-->
+    <!--        android:height="274dp"-->
+    <!--        android:viewportWidth="486"-->
+    <!--        android:viewportHeight="274"-->
+    <!--        >-->
 
-<!--        <group>-->
+    <!--        <group>-->
 
-<!--            <clip-path-->
-<!--                android:pathData="M0 0H486V274H0V0Z"-->
-<!--                />-->
+    <!--            <clip-path-->
+    <!--                android:pathData="M0 0H486V274H0V0Z"-->
+    <!--                />-->
 
-<!--        </group>-->
+    <!--        </group>-->
 
-<!--    </vector>-->
-
+    <!--    </vector>-->
 
 
     <!-- email -->
@@ -238,42 +235,42 @@
 
 
     <!-- drawable/mail_icon_p.xml -->
-    <ImageView
-        android:id="@+id/mail_icon_p"
-        android:layout_width="50dp"
-        android:layout_height="35dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/mail_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/email"
-        app:layout_constraintEnd_toEndOf="@+id/email"
-        app:layout_constraintTop_toTopOf="@+id/email" />
 
-<!--    <vector-->
-<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--        xmlns:aapt="http://schemas.android.com/aapt"-->
-<!--        android:width="50dp"-->
-<!--        android:height="35dp"-->
-<!--        android:viewportWidth="50"-->
-<!--        android:viewportHeight="35"-->
-<!--        >-->
+    <!--    <vector-->
+    <!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--        xmlns:aapt="http://schemas.android.com/aapt"-->
+    <!--        android:width="50dp"-->
+    <!--        android:height="35dp"-->
+    <!--        android:viewportWidth="50"-->
+    <!--        android:viewportHeight="35"-->
+    <!--        >-->
 
-<!--        <group>-->
+    <!--        <group>-->
 
-<!--            <clip-path-->
-<!--                android:pathData="M0 0H50V35H0V0Z"-->
-<!--                />-->
+    <!--            <clip-path-->
+    <!--                android:pathData="M0 0H50V35H0V0Z"-->
+    <!--                />-->
 
-<!--        </group>-->
+    <!--        </group>-->
 
-<!--    </vector>-->
-
+    <!--    </vector>-->
 
 
     <!-- lock-icon-11 1 -->
 
 
     <!-- drawable/lock_icon_1.xml -->
+
+    <ImageView
+        android:id="@+id/mail_icon_p"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/mail_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="@+id/email"
+        app:layout_constraintTop_toTopOf="@+id/email" />
+
     <ImageView
         android:id="@+id/lock_icon_1"
         android:layout_width="50dp"
@@ -285,66 +282,64 @@
         app:layout_constraintEnd_toEndOf="@+id/password"
         app:layout_constraintTop_toTopOf="@+id/password" />
 
-<!--    <vector-->
-<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--        xmlns:aapt="http://schemas.android.com/aapt"-->
-<!--        android:width="50dp"-->
-<!--        android:height="50dp"-->
-<!--        android:viewportWidth="50"-->
-<!--        android:viewportHeight="50"-->
-<!--        >-->
+    <!--    <vector-->
+    <!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--        xmlns:aapt="http://schemas.android.com/aapt"-->
+    <!--        android:width="50dp"-->
+    <!--        android:height="50dp"-->
+    <!--        android:viewportWidth="50"-->
+    <!--        android:viewportHeight="50"-->
+    <!--        >-->
 
-<!--        <group>-->
+    <!--        <group>-->
 
-<!--            <clip-path-->
-<!--                android:pathData="M0 0H50V50H0V0Z"-->
-<!--                />-->
+    <!--            <clip-path-->
+    <!--                android:pathData="M0 0H50V50H0V0Z"-->
+    <!--                />-->
 
-<!--        </group>-->
+    <!--        </group>-->
 
-<!--    </vector>-->
-
-
-
-<!--    &lt;!&ndash; Line 4 &ndash;&gt;-->
-<!--    <View-->
-<!--        android:id="@+id/line_4"-->
-<!--        android:layout_width="103dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_alignParentLeft="true"-->
-<!--        android:layout_marginLeft="155dp"-->
-<!--        android:layout_alignParentTop="true"-->
-<!--        android:layout_marginTop="607dp"-->
-<!--        android:background="@drawable/line_4"-->
-<!--        />-->
+    <!--    </vector>-->
 
 
-<!--    &lt;!&ndash; drawable/line_4.xml &ndash;&gt;-->
-<!--    <vector-->
-<!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--        xmlns:aapt="http://schemas.android.com/aapt"-->
-<!--        android:width="104dp"-->
-<!--        android:height="1dp"-->
-<!--        android:viewportWidth="104"-->
-<!--        android:viewportHeight="1"-->
-<!--        >-->
+    <!--    &lt;!&ndash; Line 4 &ndash;&gt;-->
+    <!--    <View-->
+    <!--        android:id="@+id/line_4"-->
+    <!--        android:layout_width="103dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        android:layout_alignParentLeft="true"-->
+    <!--        android:layout_marginLeft="155dp"-->
+    <!--        android:layout_alignParentTop="true"-->
+    <!--        android:layout_marginTop="607dp"-->
+    <!--        android:background="@drawable/line_4"-->
+    <!--        />-->
 
-<!--        <group>-->
 
-<!--            <clip-path-->
-<!--                android:pathData="M0.5 0.5H103.5H0.5Z"-->
-<!--                />-->
+    <!--    &lt;!&ndash; drawable/line_4.xml &ndash;&gt;-->
+    <!--    <vector-->
+    <!--        xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--        xmlns:aapt="http://schemas.android.com/aapt"-->
+    <!--        android:width="104dp"-->
+    <!--        android:height="1dp"-->
+    <!--        android:viewportWidth="104"-->
+    <!--        android:viewportHeight="1"-->
+    <!--        >-->
 
-<!--        </group>-->
+    <!--        <group>-->
 
-<!--        <path-->
-<!--            android:pathData="M0.5 0.5H103.5H0.5Z"-->
-<!--            android:strokeWidth="1"-->
-<!--            android:strokeColor="#000000"-->
-<!--            />-->
+    <!--            <clip-path-->
+    <!--                android:pathData="M0.5 0.5H103.5H0.5Z"-->
+    <!--                />-->
 
-<!--    </vector>-->
+    <!--        </group>-->
 
+    <!--        <path-->
+    <!--            android:pathData="M0.5 0.5H103.5H0.5Z"-->
+    <!--            android:strokeWidth="1"-->
+    <!--            android:strokeColor="#000000"-->
+    <!--            />-->
+
+    <!--    </vector>-->
 
 
     <!-- Privacy -->
@@ -366,7 +361,6 @@
         app:srcCompat="@drawable/privacy_background" />
 
 
-
     <!-- privacy text -->
 
     <!--
@@ -374,8 +368,6 @@
       Line height: 24sp
       (identical to box height)
     -->
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
