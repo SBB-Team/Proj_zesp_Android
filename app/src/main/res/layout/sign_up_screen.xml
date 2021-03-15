@@ -144,13 +144,15 @@
             android:layout_width="50dp"
             android:layout_height="35dp"
             android:layout_alignParentTop="true"
+            android:background="@drawable/mail_icon"
             android:scaleX="0.65"
             android:scaleY="0.65"
             android:src="@drawable/mail_icon"
             app:layout_constraintBottom_toBottomOf="@+id/email"
             app:layout_constraintEnd_toEndOf="@+id/email"
             app:layout_constraintTop_toTopOf="@+id/email"
-            app:srcCompat="@drawable/mail_icon" />
+            app:srcCompat="@drawable/mail_icon"
+            tools:srcCompat="@drawable/mail_icon" />
 
         <!--    Lock icon-->
         <ImageView
