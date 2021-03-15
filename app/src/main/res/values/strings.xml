@@ -6,7 +6,7 @@
     <string name="privacy_tex">Privacy and policy</string>
     <string name="email"><b>E-mail</b></string>
     <string name="password"><b>Password</b></string>
-    <string name="rep_password">Repeat password</string>
-    <string name="first_name">First name</string>
-    <string name="second_name">Last name</string>
+    <string name="rep_password"><b>Repeat password</b></string>
+    <string name="first_name"><b>First name</b></string>
+    <string name="second_name"><b>Second name</b></string>
 </resources>
