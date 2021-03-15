@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
         password.setHintTextColor(getResources().getColor(R.color.black));
 
         EditText password2 = (EditText) findViewById(R.id.password2);
-        password.setHintTextColor(getResources().getColor(R.color.black));
+        password2.setHintTextColor(getResources().getColor(R.color.black));
 
         EditText first_name = (EditText) findViewById(R.id.first_name);
-        password.setHintTextColor(getResources().getColor(R.color.black));
+        first_name.setHintTextColor(getResources().getColor(R.color.black));
 
         EditText last_name = (EditText) findViewById(R.id.last_name);
-        password.setHintTextColor(getResources().getColor(R.color.black));
+        last_name.setHintTextColor(getResources().getColor(R.color.black));
     }
 }
