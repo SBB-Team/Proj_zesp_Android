@@ -8,15 +8,14 @@
 
     tools:context=".SignUpScreenActivity">
 
-<!--    <ScrollView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"/>-->
+    <!--    <ScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"/>-->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:background="@drawable/background_gradient">
-
+        android:layout_height="match_parent">
+        <!--        android:background="@drawable/background_gradient"-->
 
         <!-- password -->
         <EditText
@@ -131,11 +130,13 @@
             android:id="@+id/register_bu"
             android:layout_width="wrap_content"
             android:layout_height="55dp"
+            android:layout_marginTop="21dp"
             android:fontFamily="@font/acme"
             android:text="@string/Log_but_sign_up"
             app:layout_constraintBottom_toTopOf="@+id/privacy"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/last_name" />
 
         <!--    Text: "Dont have an account"-->
 
