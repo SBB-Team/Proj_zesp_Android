@@ -6,4 +6,142 @@
     android:layout_height="match_parent"
     tools:context=".SignUpScreenActivity">
 
+    <!-- password -->
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="321dp"
+        android:layout_height="55dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:background="#00000000"
+        android:ems="10"
+        android:fontFamily="@font/acme"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
+    <!-- logo -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="486dp"
+        android:layout_height="274dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/pb_logo"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+<!--    &lt;!&ndash;        app:srcCompat="@drawable/pb_logo_xml"/>&ndash;&gt;    does not work-->
+
+
+    <!-- Email -->
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="321dp"
+        android:layout_height="47dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:background="#00000000"
+        android:fontFamily="@font/acme"
+        android:hint="@string/email"
+        android:paddingLeft="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
+
+
+    <!-- Login button -->
+    <Button
+        android:id="@+id/login_butto"
+        android:layout_width="144.72dp"
+        android:layout_height="55dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:background="#00000000"
+        android:fontFamily="@font/acme"
+        android:text="@string/Log_but_sign_in"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
+
+
+    <!-- Register button -->
+    <Button
+        android:id="@+id/register_bu"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:fontFamily="@font/acme"
+        android:text="@string/Log_but_sign_up"
+        app:layout_constraintBottom_toTopOf="@+id/privacy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text1" />
+
+<!--    Text: "Dont have an account"-->
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="277dp"
+        android:layout_height="26dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/acme"
+        android:text="@string/Log_text1"
+        android:textAlignment="center"
+        android:textAppearance="@style/text1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_butto" />
+
+<!--    Mail icon-->
+    <ImageView
+        android:id="@+id/mail_icon_p"
+        android:layout_width="50dp"
+        android:layout_height="35dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/mail_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="@+id/email"
+        app:layout_constraintTop_toTopOf="@+id/email" />
+
+<!--    Lock icon-->
+    <ImageView
+        android:id="@+id/lock_icon_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/lock_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/password"
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintTop_toTopOf="@+id/password" />
+
+    <!-- Privacy -->
+    <TextView
+        android:id="@+id/privacy"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/black"
+        android:fontFamily="@font/acme"
+        android:paddingTop="5dp"
+        android:text="@string/privacy_tex"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/privacy_background" />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
