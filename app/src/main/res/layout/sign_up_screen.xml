@@ -1,175 +1,188 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
+
     tools:context=".SignUpScreenActivity">
 
-    <!-- password -->
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="321dp"
-        android:layout_height="55dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:background="#00000000"
-        android:ems="10"
-        android:fontFamily="@font/acme"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"/>-->
 
-    <!-- logo -->
-
-    <EditText
-        android:id="@+id/password2"
-        android:layout_width="321dp"
-        android:layout_height="55dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:background="#00000000"
-        android:ems="10"
-        android:fontFamily="@font/acme"
-        android:hint="@string/rep_password"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
-
-    <EditText
-        android:id="@+id/first_name"
-        android:layout_width="321dp"
-        android:layout_height="55dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:background="#00000000"
-        android:ems="10"
-        android:fontFamily="@font/acme"
-        android:hint="@string/first_name"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password2" />
-
-    <EditText
-        android:id="@+id/last_name"
-        android:layout_width="321dp"
-        android:layout_height="55dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="12dp"
-        android:background="#00000000"
-        android:ems="10"
-        android:fontFamily="@font/acme"
-        android:hint="@string/second_name"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/first_name" />
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="486dp"
-        android:layout_height="274dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/pb_logo"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-<!--    &lt;!&ndash;        app:srcCompat="@drawable/pb_logo_xml"/>&ndash;&gt;    does not work-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/background_gradient">
 
 
-    <!-- Email -->
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="321dp"
-        android:layout_height="47dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
-        android:background="#00000000"
-        android:fontFamily="@font/acme"
-        android:hint="@string/email"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
+        <!-- password -->
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="321dp"
+            android:layout_height="55dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="16dp"
+            android:background="#00000000"
+            android:ems="10"
+            android:fontFamily="@font/acme"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/email" />
+
+        <!-- logo -->
+
+        <EditText
+            android:id="@+id/password2"
+            android:layout_width="321dp"
+            android:layout_height="55dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="16dp"
+            android:background="#00000000"
+            android:ems="10"
+            android:fontFamily="@font/acme"
+            android:hint="@string/rep_password"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.511"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password" />
+
+        <EditText
+            android:id="@+id/first_name"
+            android:layout_width="321dp"
+            android:layout_height="55dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="16dp"
+            android:background="#00000000"
+            android:ems="10"
+            android:fontFamily="@font/acme"
+            android:hint="@string/first_name"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.511"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password2" />
+
+        <EditText
+            android:id="@+id/last_name"
+            android:layout_width="321dp"
+            android:layout_height="55dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="12dp"
+            android:background="#00000000"
+            android:ems="10"
+            android:fontFamily="@font/acme"
+            android:hint="@string/second_name"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.511"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/first_name" />
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="486dp"
+            android:layout_height="274dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/pb_logo"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--    &lt;!&ndash;        app:srcCompat="@drawable/pb_logo_xml"/>&ndash;&gt;    does not work-->
 
 
-    <!-- Login button -->
+        <!-- Email -->
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="321dp"
+            android:layout_height="47dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="16dp"
+            android:background="#00000000"
+            android:fontFamily="@font/acme"
+            android:hint="@string/email"
+            android:paddingLeft="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
 
 
-    <!-- Register button -->
-    <Button
-        android:id="@+id/register_bu"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:fontFamily="@font/acme"
-        android:text="@string/Log_but_sign_up"
-        app:layout_constraintBottom_toTopOf="@+id/privacy"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-<!--    Text: "Dont have an account"-->
-
-    <!--    Mail icon-->
-    <ImageView
-        android:id="@+id/mail_icon_p"
-        android:layout_width="50dp"
-        android:layout_height="35dp"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/mail_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/email"
-        app:layout_constraintEnd_toEndOf="@+id/email"
-        app:layout_constraintTop_toTopOf="@+id/email" />
-
-<!--    Lock icon-->
-    <ImageView
-        android:id="@+id/lock_icon_1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/lock_logo"
-        app:layout_constraintBottom_toBottomOf="@+id/password"
-        app:layout_constraintEnd_toEndOf="@+id/password"
-        app:layout_constraintTop_toTopOf="@+id/password" />
-
-    <!-- Privacy -->
-    <TextView
-        android:id="@+id/privacy"
-        android:layout_width="0dp"
-        android:layout_height="33dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:background="@color/black"
-        android:fontFamily="@font/acme"
-        android:paddingTop="5dp"
-        android:text="@string/privacy_tex"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/privacy_background" />
+        <!-- Login button -->
 
 
+        <!-- Register button -->
+        <Button
+            android:id="@+id/register_bu"
+            android:layout_width="wrap_content"
+            android:layout_height="55dp"
+            android:fontFamily="@font/acme"
+            android:text="@string/Log_but_sign_up"
+            app:layout_constraintBottom_toTopOf="@+id/privacy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!--    Text: "Dont have an account"-->
+
+        <!--    Mail icon-->
+        <ImageView
+            android:id="@+id/mail_icon_p"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/mail_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/email"
+            app:layout_constraintEnd_toEndOf="@+id/email"
+            app:layout_constraintTop_toTopOf="@+id/email" />
+
+        <!--    Lock icon-->
+        <ImageView
+            android:id="@+id/lock_icon_1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/lock_logo"
+            app:layout_constraintBottom_toBottomOf="@+id/password"
+            app:layout_constraintEnd_toEndOf="@+id/password"
+            app:layout_constraintTop_toTopOf="@+id/password" />
+
+        <!-- Privacy -->
+        <TextView
+            android:id="@+id/privacy"
+            android:layout_width="0dp"
+            android:layout_height="33dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@color/black"
+            android:fontFamily="@font/acme"
+            android:paddingTop="5dp"
+            android:text="@string/privacy_tex"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/privacy_background" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
