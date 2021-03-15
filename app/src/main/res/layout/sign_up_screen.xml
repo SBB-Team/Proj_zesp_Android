@@ -148,6 +148,7 @@
             android:scaleX="0.65"
             android:scaleY="0.65"
             android:src="@drawable/mail_icon"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="@+id/email"
             app:layout_constraintEnd_toEndOf="@+id/email"
             app:layout_constraintTop_toTopOf="@+id/email"
