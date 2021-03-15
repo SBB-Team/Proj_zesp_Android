@@ -8,8 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Proj_zesp">
-        <activity android:name=".SignUpScreenActivity"></activity>
+        android:theme="@style/Theme.Proj_zesp"
+        android:screenOrientation="portrait">
+        <activity android:name=".SignUpScreenActivity">
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
