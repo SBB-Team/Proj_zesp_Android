@@ -149,7 +149,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/email"
             app:layout_constraintEnd_toEndOf="@+id/email"
             app:layout_constraintTop_toTopOf="@+id/email"
-            app:srcCompat="@drawable/mail_icon" />
+            android:src="@drawable/mail_icon"/>
 
         <!--    Lock icon-->
         <ImageView
