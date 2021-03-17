@@ -40,18 +40,19 @@ public class FirstStartScreen extends AppCompatActivity {
     private void showRegScreen(){
         Intent SecAct = new Intent(this, SignUpScreenActivity.class);
         startActivity(SecAct);
-        Bundle extras = getIntent().getExtras();
-        if(extras !=null) {
-            email_s = extras.getString("email");
-            password_s = extras.getString("password");
-            first_name_s = extras.getString("first_name");
-            last_name_s = extras.getString("last_name");
-            Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
-            toast.show();
-        }
+        finish();
+//        Bundle extras = getIntent().getExtras();
+//        if(extras !=null) {
+//            email_s = extras.getString("email");
+//            password_s = extras.getString("password");
+//            first_name_s = extras.getString("first_name");
+//            last_name_s = extras.getString("last_name");
+//            Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
+//            toast.show();
+//        }
         //Log.i("TAG",email_s);
-        Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
-        toast.show();
+//        Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
+//        toast.show();
     }
 
     @Override
@@ -74,6 +75,16 @@ public class FirstStartScreen extends AppCompatActivity {
                 showRegScreen();
             }
         });
+
+        Bundle extras = getIntent().getExtras();
+        if(extras !=null) {
+            email_s = extras.getString("email");
+            password_s = extras.getString("password");
+            first_name_s = extras.getString("first_name");
+            last_name_s = extras.getString("last_name");
+            Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
+            toast.show();
+        }
 
         //signup_btn.setText(email_s);
 
