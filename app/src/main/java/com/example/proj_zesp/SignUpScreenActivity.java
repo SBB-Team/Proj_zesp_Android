@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
 public class SignUpScreenActivity extends AppCompatActivity {
@@ -28,10 +30,20 @@ public class SignUpScreenActivity extends AppCompatActivity {
         EditText last_name = (EditText) findViewById(R.id.last_name);
         last_name.setHintTextColor(getResources().getColor(R.color.black));
 
-        Intent i = new Intent(this, FirstStartScreen.class);
-        i.putExtra("email",email.getText().toString());
-        i.putExtra("password",email.getText().toString());
-        i.putExtra("first_name",email.getText().toString());
-        i.putExtra("last_name",email.getText().toString());
+        Button signup_btn = (Button) findViewById(R.id.register_bu);
+
+        signup_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), FirstStartScreen.class);
+                i.putExtra("email",email.getText().toString());
+                i.putExtra("password",email.getText().toString());
+                i.putExtra("first_name",email.getText().toString());
+                i.putExtra("last_name",email.getText().toString());
+                finish();
+            }
+        });
+
+
     }
 }

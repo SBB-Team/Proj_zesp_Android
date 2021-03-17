@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ public class FirstStartScreen extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseDatabase db;
     DatabaseReference users;
+    String email_s, password_s, first_name_s, last_name_s;
 
 
     private void Init(){
@@ -37,6 +39,14 @@ public class FirstStartScreen extends AppCompatActivity {
     private void showRegScreen(){
         Intent SecAct = new Intent(this, SignUpScreenActivity.class);
         startActivity(SecAct);
+        Bundle extras = getIntent().getExtras();
+        if(extras !=null) {
+            email_s = extras.getString("email");
+            password_s = extras.getString("password");
+            first_name_s = extras.getString("first_name");
+            last_name_s = extras.getString("last_name");
+        }
+        Log.e("TAG",email_s);
     }
 
     @Override
@@ -60,10 +70,10 @@ public class FirstStartScreen extends AppCompatActivity {
             }
         });
 
-        Bundle extras = getIntent().getExtras();
-        if(extras !=null) {
-            String value = extras.getString("KEY");
-        }
+
+
+
+
 
 
 
