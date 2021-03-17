@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -45,8 +46,12 @@ public class FirstStartScreen extends AppCompatActivity {
             password_s = extras.getString("password");
             first_name_s = extras.getString("first_name");
             last_name_s = extras.getString("last_name");
+            Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
+            toast.show();
         }
-        Log.e("TAG",email_s);
+        //Log.i("TAG",email_s);
+        Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
+        toast.show();
     }
 
     @Override
@@ -70,6 +75,7 @@ public class FirstStartScreen extends AppCompatActivity {
             }
         });
 
+        //signup_btn.setText(email_s);
 
 
 

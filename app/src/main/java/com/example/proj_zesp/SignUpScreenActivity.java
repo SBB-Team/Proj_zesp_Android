@@ -41,6 +41,7 @@ public class SignUpScreenActivity extends AppCompatActivity {
                 i.putExtra("first_name",email.getText().toString());
                 i.putExtra("last_name",email.getText().toString());
                 finish();
+                //onBackPressed();
             }
         });
 
