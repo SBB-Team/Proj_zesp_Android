@@ -84,18 +84,18 @@ public class FirstStartScreen extends AppCompatActivity {
             password_s = extras.getString("password");
             first_name_s = extras.getString("first_name");
             last_name_s = extras.getString("last_name");
-            Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
-            toast.show();
+//            Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
+//            toast.show();
+
+//            auth.createUserWithEmailAndPassword(email_s, password_s).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+//                @Override
+//                public void onSuccess(AuthResult authResult) {
+//
+//                }
+//            });
         }
 
         //signup_btn.setText(email_s);
-
-        auth.createUserWithEmailAndPassword(email_s, password_s).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-            @Override
-            public void onSuccess(AuthResult authResult) {
-
-            }
-        });
 
 
 
