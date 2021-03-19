@@ -105,7 +105,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
-        android:background="#00000000"
+        android:background="#0d000000"
         android:ems="10"
         android:fontFamily="@font/acme"
         android:hint="@string/password"
@@ -162,7 +162,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="16dp"
-        android:background="#00000000"
+        android:background="#0d000000"
         android:fontFamily="@font/acme"
         android:hint="@string/email"
         android:paddingLeft="10dp"
@@ -192,12 +192,12 @@
         android:id="@+id/register_bu"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/acme"
         android:text="@string/Log_but_sign_up"
         app:layout_constraintBottom_toTopOf="@+id/privacy"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text1" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/text1"
@@ -205,14 +205,17 @@
         android:layout_height="26dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/acme"
         android:text="@string/Log_text1"
         android:textAlignment="center"
         android:textAppearance="@style/text1"
+        app:layout_constraintBottom_toTopOf="@+id/register_bu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_butto" />
+        app:layout_constraintTop_toBottomOf="@+id/login_butto"
+        app:layout_constraintVertical_bias="1.0" />
 
 
     <!-- mail icon png 1 -->
