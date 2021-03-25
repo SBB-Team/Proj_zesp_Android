@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     tools:context=".SignUpScreenActivity">
-<!---->
+    <!---->
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -134,7 +135,7 @@
 
         <!-- Register button -->
         <TextView
-            android:id="@+id/fname_e"
+            android:id="@+id/services"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/error"
