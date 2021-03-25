@@ -90,7 +90,21 @@ public class FirstStartScreen extends AppCompatActivity {
             auth.createUserWithEmailAndPassword(email_s, password_s).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
+                    User user = new User();
+                    user.setEmail(email_s);
+                    user.setPassword(password_s);
+                    user.setFirst_name(first_name_s);
+                    user.setLast_name(last_name_s);
 
+                    users.child(user.getEmail())
+                            .setValue(user)
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast toast = Toast.makeText(getApplicationContext(), "email: "+ email_s,Toast.LENGTH_LONG);
+                                    toast.show();
+                                }
+                            });
                 }
             });
         }
