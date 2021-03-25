@@ -1,5 +1,6 @@
 package com.example.proj_zesp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,12 +31,12 @@ public class FirstStartScreen extends AppCompatActivity {
 
 
     private void Init(){
-        EditText email = (EditText) findViewById(R.id.email);
-        EditText password = (EditText) findViewById(R.id.password);
-
-
-        password.setHintTextColor(getResources().getColor(R.color.black));
-        email.setHintTextColor(getResources().getColor(R.color.black));
+//        EditText email = (EditText) findViewById(R.id.email);
+//        EditText password = (EditText) findViewById(R.id.password);
+//
+//
+//        password.setHintTextColor(getResources().getColor(R.color.black));
+//        email.setHintTextColor(getResources().getColor(R.color.black));
 
 
     }
@@ -62,7 +64,7 @@ public class FirstStartScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_start_screen);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        Init();
+        //Init();
 
         Button signin_btn = (Button) findViewById(R.id.login_butto);
         Button signup_btn = (Button) findViewById(R.id.register_bu);
@@ -71,10 +73,41 @@ public class FirstStartScreen extends AppCompatActivity {
         db = FirebaseDatabase.getInstance(); // podłączenia do bazy danych
         users = db.getReference("Users");
 
+        EditText email = (EditText) findViewById(R.id.email);
+        EditText password = (EditText) findViewById(R.id.password);
+
+        password.setHintTextColor(getResources().getColor(R.color.black));
+        email.setHintTextColor(getResources().getColor(R.color.black));
+
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showRegScreen();
+                finish();
+            }
+        });
+
+
+
+        signin_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (email.getText().toString().equals("") || email.getText() == null || password.getText().toString().equals("") || password.getText()==null){
+                    return;
+                }
+                auth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                    @Override
+                    public void onSuccess(AuthResult authResult) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Logowanie...",Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast toast = Toast.makeText(getApplicationContext(), "Logowanie nie powiodło się",Toast.LENGTH_LONG);
+                        toast.show();
+                    }
+                });
             }
         });
 
@@ -84,12 +117,15 @@ public class FirstStartScreen extends AppCompatActivity {
             password_s = extras.getString("password");
             first_name_s = extras.getString("first_name");
             last_name_s = extras.getString("last_name");
-//            Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
-//            toast.show();
+
+            //Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
+            //toast.show();
 
             auth.createUserWithEmailAndPassword(email_s, password_s).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                 @Override
                 public void onSuccess(AuthResult authResult) {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Rejestracja...",Toast.LENGTH_SHORT);
+                    toast.show();
                     User user = new User();
                     user.setEmail(email_s);
                     user.setPassword(password_s);
@@ -101,10 +137,16 @@ public class FirstStartScreen extends AppCompatActivity {
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
-                                    Toast toast = Toast.makeText(getApplicationContext(), "email: "+ email_s,Toast.LENGTH_LONG);
+                                    Toast toast = Toast.makeText(getApplicationContext(), "Użytkownik został zarejestrowany",Toast.LENGTH_LONG);
                                     toast.show();
                                 }
-                            });
+                            }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast toast = Toast.makeText(getApplicationContext(), "Rejestracja nie powiodła się",Toast.LENGTH_LONG);
+                            toast.show();
+                        }
+                    });
                 }
             });
         }
