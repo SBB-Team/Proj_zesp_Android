@@ -97,6 +97,7 @@ public class FirstStartScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (email.getText().toString().equals("") || email.getText() == null || password.getText().toString().equals("") || password.getText()==null){
+                    Log.d(TAG, "Coś jest puste");
                     return;
                 }
                 auth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -104,12 +105,14 @@ public class FirstStartScreen extends AppCompatActivity {
                     public void onSuccess(AuthResult authResult) {
                         Toast toast = Toast.makeText(getApplicationContext(), "Logowanie...",Toast.LENGTH_LONG);
                         toast.show();
+                        Log.d(TAG, "Zalogowano");
                     }
                 }).addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         Toast toast = Toast.makeText(getApplicationContext(), "Logowanie nie powiodło się",Toast.LENGTH_LONG);
                         toast.show();
+                        Log.d(TAG, "Niezalogowano");
                     }
                 });
             }
@@ -159,14 +162,14 @@ public class FirstStartScreen extends AppCompatActivity {
                             Log.d(TAG, "Konto nie zostało stworzone");
                         }
                     })
-//                            .addOnCompleteListener(FirstStartScreen.this, new OnCompleteListener<Void>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<Void> task) {
-//                            Toast toast = Toast.makeText(getApplicationContext(), "Użytkownik został zarejestrowany",Toast.LENGTH_LONG);
-//                            toast.show();
-//                            Log.d(TAG, "Authentication successful");
-//                        }
-//                    })
+                            .addOnCompleteListener(FirstStartScreen.this, new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            Toast toast = Toast.makeText(getApplicationContext(), "onComplete",Toast.LENGTH_LONG);
+                            toast.show();
+                            Log.d(TAG, "onComplete działa");
+                        }
+                    })
                       ;
                 }
             });
