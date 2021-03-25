@@ -142,7 +142,7 @@ public class FirstStartScreen extends AppCompatActivity {
                     user.setFirst_name(first_name_s);
                     user.setLast_name(last_name_s);
 
-                    users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                    users.child("1")
                             .setValue(user)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override

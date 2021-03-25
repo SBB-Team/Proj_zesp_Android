@@ -21,7 +21,7 @@
 
 
     <TextView
-        android:id="@+id/services"
+        android:id="@+id/fname_e"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -50,7 +50,7 @@
         android:scaleY="2"
         app:layout_constraintEnd_toStartOf="@+id/car_wash_booking_logo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/services"
+        app:layout_constraintTop_toBottomOf="@+id/fname_e"
         app:srcCompat="@drawable/profile_logo" />
 
     <TextView
@@ -79,7 +79,7 @@
         android:scaleX="1.65"
         android:scaleY="1.65"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/services"
+        app:layout_constraintTop_toBottomOf="@+id/fname_e"
         app:srcCompat="@drawable/calendar_logo" />
 
     <TextView
