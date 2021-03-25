@@ -13,8 +13,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -28,6 +30,8 @@ public class FirstStartScreen extends AppCompatActivity {
     FirebaseDatabase db;
     DatabaseReference users;
     String email_s, password_s, first_name_s, last_name_s;
+
+    private static String TAG = "Yuriy";
 
 
     private void Init(){
@@ -118,12 +122,18 @@ public class FirstStartScreen extends AppCompatActivity {
             first_name_s = extras.getString("first_name");
             last_name_s = extras.getString("last_name");
 
+            Log.d(TAG, "Są extrasy");
+
             //Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
             //toast.show();
 
+
             auth.createUserWithEmailAndPassword(email_s, password_s).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+
+
                 @Override
                 public void onSuccess(AuthResult authResult) {
+                    Log.d(TAG, "Tworzenie usera");
                     Toast toast = Toast.makeText(getApplicationContext(), "Rejestracja...",Toast.LENGTH_SHORT);
                     toast.show();
                     User user = new User();
@@ -132,21 +142,32 @@ public class FirstStartScreen extends AppCompatActivity {
                     user.setFirst_name(first_name_s);
                     user.setLast_name(last_name_s);
 
-                    users.child(user.getEmail())
+                    users.child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                             .setValue(user)
                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Toast toast = Toast.makeText(getApplicationContext(), "Użytkownik został zarejestrowany",Toast.LENGTH_LONG);
                                     toast.show();
+                                    Log.d(TAG, "Konto zostało stworzone");
                                 }
                             }).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
                             Toast toast = Toast.makeText(getApplicationContext(), "Rejestracja nie powiodła się",Toast.LENGTH_LONG);
                             toast.show();
+                            Log.d(TAG, "Konto nie zostało stworzone");
                         }
-                    });
+                    })
+//                            .addOnCompleteListener(FirstStartScreen.this, new OnCompleteListener<Void>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<Void> task) {
+//                            Toast toast = Toast.makeText(getApplicationContext(), "Użytkownik został zarejestrowany",Toast.LENGTH_LONG);
+//                            toast.show();
+//                            Log.d(TAG, "Authentication successful");
+//                        }
+//                    })
+                      ;
                 }
             });
         }
