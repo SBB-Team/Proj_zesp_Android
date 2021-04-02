@@ -69,6 +69,7 @@
         android:background="#00000000"
         android:fontFamily="@font/acme"
         android:text="@string/Log_but_sign_in"
+        app:backgroundTint="#79ADF6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
@@ -82,6 +83,7 @@
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/acme"
         android:text="@string/Log_but_sign_up"
+        app:backgroundTint="#79ADF6"
         app:layout_constraintBottom_toTopOf="@+id/privacy"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
