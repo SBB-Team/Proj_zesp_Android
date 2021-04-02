@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -22,16 +23,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FirstStartScreen extends AppCompatActivity {
     TextView privacy;
     EditText email, password;
     Button signin_btn, signup_btn;
     FirebaseAuth auth;
-    FirebaseDatabase db;
+    FirebaseFirestore db;
     DatabaseReference users;
     String email_s, password_s, first_name_s, last_name_s;
 
@@ -61,6 +64,8 @@ public class FirstStartScreen extends AppCompatActivity {
 
 
 
+
+
         auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null){
             Log.d(TAG, "Zalogowany email: " + auth.getCurrentUser().getEmail());
@@ -68,6 +73,11 @@ public class FirstStartScreen extends AppCompatActivity {
             startActivity(i);
             finish();
         }
+
+
+
+
+
 
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override

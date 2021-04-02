@@ -42,6 +42,8 @@ public class SignUpScreenActivity extends AppCompatActivity {
         setContentView(R.layout.sign_up_screen);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         //
+        Log.d(TAG, ">>Sign up screen");
+
         TextView email_e = (TextView) findViewById(R.id.email_e);
         TextView password_e = (TextView) findViewById(R.id.password_e);
         TextView password2_e = (TextView) findViewById(R.id.password2_e);
@@ -53,7 +55,7 @@ public class SignUpScreenActivity extends AppCompatActivity {
 
 
         db = FirebaseFirestore.getInstance();
-
+        auth = FirebaseAuth.getInstance();
 
 
 
@@ -121,69 +123,21 @@ public class SignUpScreenActivity extends AppCompatActivity {
                 else {
                     lname_e.setVisibility(View.INVISIBLE);
 
-                    auth = FirebaseAuth.getInstance();
+
                     Log.d(TAG,"Rejestracja zaczyna się");
                     auth.createUserWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim())
-//                            .addOnCompleteListener(SignUpScreenActivity.this, new OnCompleteListener<AuthResult>() {
-//                                @Override
-//                                public void onComplete(@NonNull Task<AuthResult> task) {
-//                                    if (task.isSuccessful()){
-//                                        Log.d(TAG,"Udało się zarejestrować");
-//
-//
-//
-//                                    }
-//                                    if (!task.isSuccessful()) {
-//                                        Log.d(TAG, "Nie udało się zarejestrować, bo: " + task.getException().getMessage());
-//                                        Log.d(TAG, "Email: " + email.getText().toString().trim());
-//                                        Log.d(TAG, "Password: " + password.getText().toString().trim());
-//                                        return;
-//                                    }else if (task.isCanceled()){
-//                                        Log.d(TAG, "Task is canceled");
-//                                        return;
-//                                    }else{
-//
-//                                    }
-//                                    Map<String, Object> user = new HashMap<>();
-//                                    user.put("email", email.getText().toString().trim());
-//                                    user.put("password", password.getText().toString().trim());
-//                                    user.put("first_name", first_name.getText().toString().trim());
-//                                    user.put("last_name", last_name.getText().toString().trim());
-//
-//                                    Log.d(TAG, "Dodawanie danych użytkownika");
-//
-//                                    db.collection("users").document("email.getText().toString().trim()")
-//                                            .set(user)
-//                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                                @Override
-//                                                public void onSuccess(Void aVoid) {
-//                                                    Log.d(TAG, "Dane użytkownika zostały dodane!");
-//                                                }
-//                                            })
-//                                            .addOnFailureListener(new OnFailureListener() {
-//                                                @Override
-//                                                public void onFailure(@NonNull Exception e) {
-//                                                    Log.w(TAG, "Pomyłka przy dodaniu danych użytkownika", e);
-//                                                }
-//                                            });
-//                                }
-//                            });
                     .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                         @Override
                         public void onSuccess(AuthResult authResult) {
-                            Log.d(TAG,"Dodawanie danych użytkownika1");
                             Map<String, Object> user = new HashMap<>();
-                                    user.put("email", email.getText().toString().trim());
+                                    user.put("email", email.getText().toString().trim().toLowerCase());
                                     user.put("password", password.getText().toString().trim());
                                     user.put("first_name", first_name.getText().toString().trim());
                                     user.put("last_name", last_name.getText().toString().trim());
 
-                                    Log.d(TAG, "Dodawanie danych użytkownika2");
+                                    Log.d(TAG, "Dodawanie danych użytkownika...");
 
-                                    //db.collection("users").add(user);
-                                    //db.collection("users").document().s
-
-                                    db.collection("users").document("email.getText().toString().trim()")
+                                    db.collection("users").document(email.getText().toString().trim().toLowerCase())
                                             .set(user)
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                 @Override
