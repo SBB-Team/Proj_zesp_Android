@@ -61,7 +61,9 @@ public class FirstStartScreen extends AppCompatActivity {
         //db = FirebaseDatabase.getInstance(); // podłączenia do bazy danych
         //users = db.getReference("Users");
 
+
         if (auth.getCurrentUser() != null){
+            Log.d(TAG, "Zalogowany email: " + auth.getCurrentUser().getEmail());
             Intent i = new Intent(getApplicationContext(), MainMenu.class);
             startActivity(i);
             finish();
@@ -100,7 +102,9 @@ public class FirstStartScreen extends AppCompatActivity {
                             }else{
                                 Log.d(TAG,"Nie udało się zalogować, bo: "+task.getException().getMessage());
 
-                                Log.d(TAG,"Zalogowany Użytkownik: "+auth.getCurrentUser().getEmail());
+                                if (auth.getCurrentUser() != null) {
+                                    Log.d(TAG, "Zalogowany Użytkownik: " + auth.getCurrentUser().getEmail());
+                                }
                             }
 
                         }
