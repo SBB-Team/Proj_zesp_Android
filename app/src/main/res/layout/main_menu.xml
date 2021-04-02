@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     tools:context=".MainMenu">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,10 +48,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginStart="72dp"
             android:layout_marginTop="56dp"
-            android:layout_marginEnd="150dp"
             android:scaleX="2"
             android:scaleY="2"
-            app:layout_constraintEnd_toStartOf="@+id/car_wash_booking_logo"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/fname_e"
             app:srcCompat="@drawable/profile_logo" />
@@ -59,7 +58,6 @@
             android:id="@+id/view_profile_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="48dp"
             android:layout_marginTop="40dp"
             android:fontFamily="@font/acme"
             android:gravity="center"
@@ -67,7 +65,8 @@
             android:textColor="@color/black"
             android:textSize="24sp"
             android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/view_profile_logo"
+            app:layout_constraintStart_toStartOf="@+id/view_profile_logo"
             app:layout_constraintTop_toBottomOf="@+id/view_profile_logo" />
 
         <ImageView
@@ -89,14 +88,14 @@
             android:layout_width="100dp"
             android:layout_height="59dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="42dp"
             android:fontFamily="@font/acme"
             android:gravity="center"
             android:text="@string/Car_Wash_booking"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/car_wash_booking_logo"
+            app:layout_constraintStart_toStartOf="@+id/car_wash_booking_logo"
             app:layout_constraintTop_toBottomOf="@+id/car_wash_booking_logo" />
 
         <ImageView
@@ -119,14 +118,14 @@
             android:layout_width="100dp"
             android:layout_height="59dp"
             android:layout_marginTop="40dp"
-            android:layout_marginEnd="42dp"
             android:fontFamily="@font/acme"
             android:gravity="center"
             android:text="@string/prices"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:visibility="visible"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/prices_logo"
+            app:layout_constraintStart_toStartOf="@+id/prices_logo"
             app:layout_constraintTop_toBottomOf="@+id/prices_logo" />
 
         <ImageView
@@ -147,7 +146,6 @@
             android:id="@+id/location_text"
             android:layout_width="100dp"
             android:layout_height="59dp"
-            android:layout_marginStart="56dp"
             android:layout_marginTop="40dp"
             android:fontFamily="@font/acme"
             android:gravity="center"
@@ -155,7 +153,8 @@
             android:textColor="@color/black"
             android:textSize="24sp"
             android:visibility="visible"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/location_logo"
+            app:layout_constraintStart_toStartOf="@+id/location_logo"
             app:layout_constraintTop_toBottomOf="@+id/location_logo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
