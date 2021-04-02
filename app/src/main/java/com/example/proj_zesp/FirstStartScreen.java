@@ -72,10 +72,10 @@ public class FirstStartScreen extends AppCompatActivity {
             Intent i = new Intent(getApplicationContext(), MainMenu.class);
             startActivity(i);
             finish();
-            auth.getCurrentUser().
         }
 
-up_btn.setOnClickListener(new View.OnClickListener() {
+
+        signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showRegScreen();
