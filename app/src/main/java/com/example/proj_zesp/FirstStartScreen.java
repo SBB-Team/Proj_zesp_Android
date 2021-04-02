@@ -33,34 +33,10 @@ public class FirstStartScreen extends AppCompatActivity {
 
     private static String TAG = "Yuriy";
 
-
-    private void Init(){
-//        EditText email = (EditText) findViewById(R.id.email);
-//        EditText password = (EditText) findViewById(R.id.password);
-//
-//
-//        password.setHintTextColor(getResources().getColor(R.color.black));
-//        email.setHintTextColor(getResources().getColor(R.color.black));
-
-
-    }
-
     private void showRegScreen(){
         Intent SecAct = new Intent(this, SignUpScreenActivity.class);
         startActivity(SecAct);
         finish();
-//        Bundle extras = getIntent().getExtras();
-//        if(extras !=null) {
-//            email_s = extras.getString("email");
-//            password_s = extras.getString("password");
-//            first_name_s = extras.getString("first_name");
-//            last_name_s = extras.getString("last_name");
-//            Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
-//            toast.show();
-//        }
-        //Log.i("TAG",email_s);
-//        Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
-//        toast.show();
     }
 
     @Override
@@ -68,8 +44,7 @@ public class FirstStartScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_start_screen);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        //Log.d(TAG,"Start programu");
-        //Init();
+        Log.d(TAG,"Start programu");
 
         Button signin_btn = (Button) findViewById(R.id.login_butto);
         Button signup_btn = (Button) findViewById(R.id.register_bu);
@@ -80,15 +55,67 @@ public class FirstStartScreen extends AppCompatActivity {
         password.setHintTextColor(getResources().getColor(R.color.black));
         email.setHintTextColor(getResources().getColor(R.color.black));
 
-        //if (savedInstanceState == null){
 
-            auth = FirebaseAuth.getInstance();  // autoryzacja w bazie danych
-            //db = FirebaseDatabase.getInstance(); // podłączenia do bazy danych
-            //users = db.getReference("Users");
+
+        auth = FirebaseAuth.getInstance();  // autoryzacja w bazie danych
+        //db = FirebaseDatabase.getInstance(); // podłączenia do bazy danych
+        //users = db.getReference("Users");
+
+
+
+
+
+        /////////////////////////////////////
+
+        signup_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showRegScreen();
+                finish();
+            }
+        });
+
+
+
+        signin_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (email.getText().toString().equals("") || email.getText() == null || password.getText().toString().equals("") || password.getText()==null){
+                    Log.d(TAG, "Coś jest puste");
+                    return;
+                }
+                auth.signInWithEmailAndPassword("test_email7@gmail.com","Testpassword1!")
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Log.d(TAG,"Udało się zalogować");
+                                Intent i = new Intent(getApplicationContext(), MainMenu.class);
+                                startActivity(i);
+                                finish();
+                            }else{
+                                Log.d(TAG,"Nie udało się zalogować, bo: "+task.getException().getMessage());
+
+                                Log.d(TAG,"Zalogowany Użytkownik: "+auth.getCurrentUser().getEmail());
+                            }
+
+                        }
+                    }
+                );
+            }
+        });
+
+        Bundle extras = getIntent().getExtras();
+        if(extras !=null) {
+            email_s = extras.getString("email");
+            password_s = extras.getString("password");
+            first_name_s = extras.getString("first_name");
+            last_name_s = extras.getString("last_name");
+            Log.d(TAG, "Są extrasy");
+
 
             Log.d(TAG,"Rejestracja zaczyna się");
-            String t_email = "test_email7@gmail.com", t_pass= "Testpassword1!";
-            auth.createUserWithEmailAndPassword(t_email.trim(),t_pass.trim())
+            auth.createUserWithEmailAndPassword(email_s.trim(),password_s.trim())
                     .addOnCompleteListener(FirstStartScreen.this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -97,8 +124,8 @@ public class FirstStartScreen extends AppCompatActivity {
                             }
                             if (!task.isSuccessful()) {
                                 Log.d(TAG, "Nie udało się zarejestrować, bo: " + task.getException().getMessage());
-                                Log.d(TAG, "Email: " + t_email);
-                                Log.d(TAG, "Password: " + t_pass);
+                                Log.d(TAG, "Email: " + email_s);
+                                Log.d(TAG, "Password: " + password_s);
                             }
                             if (task.isCanceled()){
                                 Log.d(TAG, "Task is canceled");
@@ -107,135 +134,7 @@ public class FirstStartScreen extends AppCompatActivity {
                     });
 
             auth.signOut();
-
-            auth.signInWithEmailAndPassword("test_email7@gmail.com","Testpassword1!")
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                Log.d(TAG,"Udało się zalogować");
-                            }else{
-                                Log.d(TAG,"Nie udało się zalogować, bo: "+task.getException().getMessage());
-
-                                Log.d(TAG,"Zalogowany Użytkownik: "+auth.getCurrentUser().getEmail());
-                            }
-
-                        }})
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            //Log.d(TAG,"Nie udało się zalogować");
-
-                        }
-                    });
-        //}
-
-
-
-
-
-
-
-
-//        signup_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                showRegScreen();
-//                finish();
-//            }
-//        });
-//
-//
-//
-//        signin_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (email.getText().toString().equals("") || email.getText() == null || password.getText().toString().equals("") || password.getText()==null){
-//                    Log.d(TAG, "Coś jest puste");
-//                    return;
-//                }
-//                auth.signInWithEmailAndPassword(email.getText().toString(),password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-//                    @Override
-//                    public void onSuccess(AuthResult authResult) {
-//                        Toast toast = Toast.makeText(getApplicationContext(), "Logowanie...",Toast.LENGTH_LONG);
-//                        toast.show();
-//                        Log.d(TAG, "Zalogowano");
-//                    }
-//                }).addOnFailureListener(new OnFailureListener() {
-//                    @Override
-//                    public void onFailure(@NonNull Exception e) {
-//                        Toast toast = Toast.makeText(getApplicationContext(), "Logowanie nie powiodło się",Toast.LENGTH_LONG);
-//                        toast.show();
-//                        Log.d(TAG, "Niezalogowano");
-//                    }
-//                });
-//            }
-//        });
-//
-//        Bundle extras = getIntent().getExtras();
-//        if(extras !=null) {
-//            email_s = extras.getString("email");
-//            password_s = extras.getString("password");
-//            first_name_s = extras.getString("first_name");
-//            last_name_s = extras.getString("last_name");
-//
-//            Log.d(TAG, "Są extrasy");
-//
-//            //Toast toast = Toast.makeText(this, "email: "+ email_s,Toast.LENGTH_LONG);
-//            //toast.show();
-//
-//
-//            auth.createUserWithEmailAndPassword(email_s, password_s).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-//
-//
-//                @Override
-//                public void onSuccess(AuthResult authResult) {
-//                    Log.d(TAG, "Tworzenie usera");
-//                    Toast toast = Toast.makeText(getApplicationContext(), "Rejestracja...",Toast.LENGTH_SHORT);
-//                    toast.show();
-//                    User user = new User();
-//                    user.setEmail(email_s);
-//                    user.setPassword(password_s);
-//                    user.setFirst_name(first_name_s);
-//                    user.setLast_name(last_name_s);
-//
-//                    users.child("1")
-//                            .setValue(user)
-//                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                @Override
-//                                public void onSuccess(Void aVoid) {
-//                                    Toast toast = Toast.makeText(getApplicationContext(), "Użytkownik został zarejestrowany",Toast.LENGTH_LONG);
-//                                    toast.show();
-//                                    Log.d(TAG, "Konto zostało stworzone");
-//                                }
-//                            }).addOnFailureListener(new OnFailureListener() {
-//                        @Override
-//                        public void onFailure(@NonNull Exception e) {
-//                            Toast toast = Toast.makeText(getApplicationContext(), "Rejestracja nie powiodła się",Toast.LENGTH_LONG);
-//                            toast.show();
-//                            Log.d(TAG, "Konto nie zostało stworzone");
-//                        }
-//                    })
-//                            .addOnCompleteListener(FirstStartScreen.this, new OnCompleteListener<Void>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<Void> task) {
-//                            Toast toast = Toast.makeText(getApplicationContext(), "onComplete",Toast.LENGTH_LONG);
-//                            toast.show();
-//                            Log.d(TAG, "onComplete działa");
-//                        }
-//                    })
-//                      ;
-//                }
-//            });
-//        }
-//
-//        //signup_btn.setText(email_s);
-
-
-
-
-
-
+        }
 
     }
 }

@@ -12,10 +12,12 @@
         <activity android:name=".MainMenu"></activity>
         <activity
             android:name=".SignUpScreenActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation"></activity>
         <activity
             android:name=".FirstStartScreen"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden|orientation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
