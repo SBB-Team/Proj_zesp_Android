@@ -6,12 +6,9 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -42,7 +39,6 @@ public class FirstStartScreen extends AppCompatActivity {
     private void showRegScreen(){
         Intent SecAct = new Intent(this, SignUpScreenActivity.class);
         startActivity(SecAct);
-
     }
 
     @Override
@@ -50,7 +46,7 @@ public class FirstStartScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_start_screen);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        Log.d(TAG,"Start programu");
+        Log.d(TAG,">>Login screen");
 
         Button signin_btn = (Button) findViewById(R.id.login_butto);
         Button signup_btn = (Button) findViewById(R.id.register_bu);
@@ -64,21 +60,13 @@ public class FirstStartScreen extends AppCompatActivity {
 
 
 
-        auth = FirebaseAuth.getInstance();  // autoryzacja w bazie danych
-        //db = FirebaseDatabase.getInstance(); // podłączenia do bazy danych
-        //users = db.getReference("Users");
-
-
+        auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null){
             Log.d(TAG, "Zalogowany email: " + auth.getCurrentUser().getEmail());
             Intent i = new Intent(getApplicationContext(), MainMenu.class);
             startActivity(i);
             finish();
         }
-
-
-
-
 
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
