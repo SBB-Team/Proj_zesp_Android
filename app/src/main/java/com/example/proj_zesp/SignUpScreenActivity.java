@@ -180,7 +180,8 @@ public class SignUpScreenActivity extends AppCompatActivity {
 
                                     Log.d(TAG, "Dodawanie danych użytkownika2");
 
-                                    db.collection("users").add(user);
+                                    //db.collection("users").add(user);
+                                    //db.collection("users").document().s
 
                                     db.collection("users").document("email.getText().toString().trim()")
                                             .set(user)
