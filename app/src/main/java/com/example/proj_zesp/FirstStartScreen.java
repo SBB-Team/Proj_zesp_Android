@@ -61,11 +61,15 @@ public class FirstStartScreen extends AppCompatActivity {
         //db = FirebaseDatabase.getInstance(); // podłączenia do bazy danych
         //users = db.getReference("Users");
 
+        if (auth.getCurrentUser() != null){
+            Intent i = new Intent(getApplicationContext(), MainMenu.class);
+            startActivity(i);
+            finish();
+        }
 
 
 
 
-        /////////////////////////////////////
 
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
