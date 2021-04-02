@@ -44,6 +44,7 @@ public class MainMenu extends AppCompatActivity {
                 auth.signOut();
                 Intent i = new Intent(getApplicationContext(), FirstStartScreen.class);
                 startActivity(i);
+                finish();
             }
         });
 
