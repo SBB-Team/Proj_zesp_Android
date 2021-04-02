@@ -1,19 +1,29 @@
 package com.example.proj_zesp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class SignUpScreenActivity extends AppCompatActivity {
 
     EditText email, password, password2, first_name, last_name;
     TextView email_e, password_e, password2_e, fname_e, lname_e;
+    FirebaseAuth auth;
+
+    private static String TAG = "Yuriy";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,22 +91,34 @@ public class SignUpScreenActivity extends AppCompatActivity {
                 else {
                     lname_e.setVisibility(View.INVISIBLE);
 
-                    Intent i = new Intent(getApplicationContext(), FirstStartScreen.class);
-                    i.putExtra("email", email.getText().toString());
-                    i.putExtra("password", email.getText().toString());
-                    i.putExtra("first_name", email.getText().toString());
-                    i.putExtra("last_name", email.getText().toString());
+                    auth = FirebaseAuth.getInstance();
+                    Log.d(TAG,"Rejestracja zaczyna się");
+                    auth.createUserWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim())
+                            .addOnCompleteListener(SignUpScreenActivity.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()){
+                                        Log.d(TAG,"Udało się zarejestrować");
+                                    }
+                                    if (!task.isSuccessful()) {
+                                        Log.d(TAG, "Nie udało się zarejestrować, bo: " + task.getException().getMessage());
+                                        Log.d(TAG, "Email: " + email.getText().toString().trim());
+                                        Log.d(TAG, "Password: " + password.getText().toString().trim());
+                                    }
+                                    if (task.isCanceled()){
+                                        Log.d(TAG, "Task is canceled");
+                                    }
+                                }
+                            });
 
+                    auth.signOut();
+                    Intent i = new Intent(getApplicationContext(), FirstStartScreen.class);
                     startActivity(i);
 
                     finish();
-                    //onBackPressed();
+
                 }
             }
         });
-
-        //last_name.setPaintFlags(last_name.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
-
-
     }
 }

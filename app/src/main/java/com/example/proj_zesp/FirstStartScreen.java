@@ -77,7 +77,6 @@ public class FirstStartScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 showRegScreen();
-                finish();
             }
         });
 
@@ -113,36 +112,8 @@ public class FirstStartScreen extends AppCompatActivity {
             }
         });
 
-        Bundle extras = getIntent().getExtras();
-        if(extras !=null) {
-            email_s = extras.getString("email");
-            password_s = extras.getString("password");
-            first_name_s = extras.getString("first_name");
-            last_name_s = extras.getString("last_name");
-            Log.d(TAG, "Są extrasy");
 
 
-            Log.d(TAG,"Rejestracja zaczyna się");
-            auth.createUserWithEmailAndPassword(email_s.trim(),password_s.trim())
-                    .addOnCompleteListener(FirstStartScreen.this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()){
-                                Log.d(TAG,"Udało się zarejestrować");
-                            }
-                            if (!task.isSuccessful()) {
-                                Log.d(TAG, "Nie udało się zarejestrować, bo: " + task.getException().getMessage());
-                                Log.d(TAG, "Email: " + email_s);
-                                Log.d(TAG, "Password: " + password_s);
-                            }
-                            if (task.isCanceled()){
-                                Log.d(TAG, "Task is canceled");
-                            }
-                        }
-                    });
-
-            auth.signOut();
-        }
 
     }
 }
