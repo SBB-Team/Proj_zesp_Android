@@ -36,7 +36,7 @@ public class FirstStartScreen extends AppCompatActivity {
     private void showRegScreen(){
         Intent SecAct = new Intent(this, SignUpScreenActivity.class);
         startActivity(SecAct);
-        finish();
+
     }
 
     @Override
