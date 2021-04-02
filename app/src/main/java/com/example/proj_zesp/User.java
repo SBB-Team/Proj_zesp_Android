@@ -11,6 +11,7 @@ public class User {
     }
 
     public User() {
+
     }
 
     public String getEmail() {

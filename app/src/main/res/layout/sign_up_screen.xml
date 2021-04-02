@@ -162,6 +162,7 @@
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/acme"
             android:text="@string/Log_but_sign_up"
+            app:backgroundTint="#B6D4FF"
             app:layout_constraintBottom_toTopOf="@+id/privacy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
