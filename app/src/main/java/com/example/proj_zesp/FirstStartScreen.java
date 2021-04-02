@@ -27,8 +27,6 @@ public class FirstStartScreen extends AppCompatActivity {
     EditText email, password;
     Button signin_btn, signup_btn;
     FirebaseAuth auth;
-    FirebaseDatabase db;
-    DatabaseReference users;
     String email_s, password_s, first_name_s, last_name_s;
 
     private static String TAG = "Yuriy";
@@ -36,7 +34,6 @@ public class FirstStartScreen extends AppCompatActivity {
     private void showRegScreen(){
         Intent SecAct = new Intent(this, SignUpScreenActivity.class);
         startActivity(SecAct);
-
     }
 
     @Override
@@ -57,11 +54,7 @@ public class FirstStartScreen extends AppCompatActivity {
 
 
 
-        auth = FirebaseAuth.getInstance();  // autoryzacja w bazie danych
-        //db = FirebaseDatabase.getInstance(); // podłączenia do bazy danych
-        //users = db.getReference("Users");
-
-
+        auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null){
             Log.d(TAG, "Zalogowany email: " + auth.getCurrentUser().getEmail());
             Intent i = new Intent(getApplicationContext(), MainMenu.class);
@@ -69,18 +62,12 @@ public class FirstStartScreen extends AppCompatActivity {
             finish();
         }
 
-
-
-
-
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showRegScreen();
             }
         });
-
-
 
         signin_btn.setOnClickListener(new View.OnClickListener() {
             @Override
