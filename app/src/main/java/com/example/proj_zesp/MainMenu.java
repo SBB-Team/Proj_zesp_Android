@@ -8,11 +8,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class MainMenu extends AppCompatActivity {
-
     private TextView view_profile_text,car_wash_text,location_text,prices_text;
-   private  ImageView view_profile_logo,car_wash_booking_logo,location_logo,prices_logo;
+    private  ImageView view_profile_logo,car_wash_booking_logo,location_logo,prices_logo;
 
+    private ImageView logo;
+    FirebaseAuth auth;
 
 
     @Override
@@ -31,6 +34,18 @@ public class MainMenu extends AppCompatActivity {
         ImageView car_wash_booking_logo = (ImageView) findViewById(R.id.car_wash_booking_logo);
         ImageView location_logo = (ImageView) findViewById(R.id.location_logo);
         ImageView prices_logo = (ImageView) findViewById(R.id.prices_logo);
+
+
+        auth = FirebaseAuth.getInstance();
+        ImageView logo = (ImageView) findViewById(R.id.logo);
+        logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                auth.signOut();
+                Intent i = new Intent(getApplicationContext(), FirstStartScreen.class);
+                startActivity(i);
+            }
+        });
 
 
 
