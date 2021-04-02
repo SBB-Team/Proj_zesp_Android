@@ -40,6 +40,8 @@ public class MainMenu extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         ImageView logo = (ImageView) findViewById(R.id.logo);
+
+
         logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 public class SignUpScreenActivity extends AppCompatActivity {
 
     EditText email, password, password2, first_name, last_name;
-    TextView email_e, password_e, password2_e, fname_e, lname_e;
+    TextView email_e, password_e, password2_e, fname_e, lname_e,privacy;
     FirebaseAuth auth;
 
     private static String TAG = "Yuriy";
@@ -36,6 +37,8 @@ public class SignUpScreenActivity extends AppCompatActivity {
         TextView password2_e = (TextView) findViewById(R.id.password2_e);
         TextView fname_e = (TextView) findViewById(R.id.fname_e);
         TextView lname_e = (TextView) findViewById(R.id.lname_e);
+
+        TextView privacy = (TextView) findViewById(R.id.privacy);
 
 
         EditText email = (EditText) findViewById(R.id.email);
@@ -54,6 +57,16 @@ public class SignUpScreenActivity extends AppCompatActivity {
         last_name.setHintTextColor(getResources().getColor(R.color.black));
 
         Button signup_btn = (Button) findViewById(R.id.register_bu);
+
+
+        privacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.privacy-policy-template.com/live.php?token=vOgi8mnSxUKDspf51aTzRdFBPSfkxsL7"));
+                startActivity(browserIntent);
+            }
+        });
+
 
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override

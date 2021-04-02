@@ -6,11 +6,15 @@ import androidx.appcompat.app.AppCompatDelegate;
 
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,8 +26,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class FirstStartScreen extends AppCompatActivity {
+import java.io.File;
 
+public class FirstStartScreen extends AppCompatActivity {
+    TextView privacy;
     EditText email, password;
     Button signin_btn, signup_btn;
     FirebaseAuth auth;
@@ -51,6 +57,7 @@ public class FirstStartScreen extends AppCompatActivity {
 
         EditText email = (EditText) findViewById(R.id.email);
         EditText password = (EditText) findViewById(R.id.password);
+        TextView privacy = (TextView) findViewById(R.id.privacy);
 
         password.setHintTextColor(getResources().getColor(R.color.black));
         email.setHintTextColor(getResources().getColor(R.color.black));
@@ -81,6 +88,17 @@ public class FirstStartScreen extends AppCompatActivity {
         });
 
 
+        privacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.privacy-policy-template.com/live.php?token=vOgi8mnSxUKDspf51aTzRdFBPSfkxsL7"));
+                startActivity(browserIntent);
+                    }
+                });
+
+
+
+
 
         signin_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +118,9 @@ public class FirstStartScreen extends AppCompatActivity {
                                 finish();
                             }else{
                                 Log.d(TAG,"Nie udało się zalogować, bo: "+task.getException().getMessage());
+                                Toast toast = Toast.makeText(getApplicationContext(),
+                                        "Hasło albo login jest nie poprawny lub \n konta nie istnieje", Toast.LENGTH_SHORT);
+                                toast.show();
 
                                 if (auth.getCurrentUser() != null) {
                                     Log.d(TAG, "Zalogowany Użytkownik: " + auth.getCurrentUser().getEmail());
