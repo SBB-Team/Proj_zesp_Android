@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -179,6 +180,8 @@ public class SignUpScreenActivity extends AppCompatActivity {
 
                                     Log.d(TAG, "Dodawanie danych użytkownika2");
 
+                                    db.collection("users").add(user);
+
                                     db.collection("users").document("email.getText().toString().trim()")
                                             .set(user)
                                             .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -192,7 +195,12 @@ public class SignUpScreenActivity extends AppCompatActivity {
                                                 public void onFailure(@NonNull Exception e) {
                                                     Log.w(TAG, "Pomyłka przy dodaniu danych użytkownika", e);
                                                 }
-                                            });
+                                            }).addOnCanceledListener(new OnCanceledListener() {
+                                        @Override
+                                        public void onCanceled() {
+                                            Log.d(TAG, "Dodanie danych użytkowników anulowane");
+                                        }
+                                    });
                         }
 
                     });
