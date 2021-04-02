@@ -84,7 +84,7 @@ public class FirstStartScreen extends AppCompatActivity {
                     Log.d(TAG, "Coś jest puste");
                     return;
                 }
-                auth.signInWithEmailAndPassword("test_email7@gmail.com","Testpassword1!")
+                auth.signInWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim())
                     .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
