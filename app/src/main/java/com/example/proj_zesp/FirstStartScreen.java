@@ -27,6 +27,8 @@ public class FirstStartScreen extends AppCompatActivity {
     EditText email, password;
     Button signin_btn, signup_btn;
     FirebaseAuth auth;
+    FirebaseDatabase db;
+    DatabaseReference users;
     String email_s, password_s, first_name_s, last_name_s;
 
     private static String TAG = "Yuriy";
@@ -41,7 +43,7 @@ public class FirstStartScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_start_screen);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        Log.d(TAG,"Start programu");
+        Log.d(TAG,">>Login screen");
 
         Button signin_btn = (Button) findViewById(R.id.login_butto);
         Button signup_btn = (Button) findViewById(R.id.register_bu);
@@ -55,6 +57,8 @@ public class FirstStartScreen extends AppCompatActivity {
 
 
         auth = FirebaseAuth.getInstance();
+        db = FirebaseDatabase.getInstance();
+
         if (auth.getCurrentUser() != null){
             Log.d(TAG, "Zalogowany email: " + auth.getCurrentUser().getEmail());
             Intent i = new Intent(getApplicationContext(), MainMenu.class);
