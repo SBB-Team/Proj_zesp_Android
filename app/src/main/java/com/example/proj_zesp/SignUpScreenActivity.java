@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,6 +35,9 @@ public class SignUpScreenActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseFirestore db;
     DatabaseReference users;
+
+    CalendarView calender;
+    Date date;
 
     private static String TAG = "Yuriy";
 
@@ -51,6 +56,37 @@ public class SignUpScreenActivity extends AppCompatActivity {
         TextView lname_e = (TextView) findViewById(R.id.lname_e);
 
         TextView privacy = (TextView) findViewById(R.id.privacy);
+
+        calender = (CalendarView) findViewById(R.id.calendarView);
+
+        calender
+                .setOnDateChangeListener(
+                        new CalendarView
+                                .OnDateChangeListener() {
+                            @Override
+
+                            // In this Listener have one method
+                            // and in this method we will
+                            // get the value of DAYS, MONTH, YEARS
+                            public void onSelectedDayChange(
+                                    @NonNull CalendarView view,
+                                    int year,
+                                    int month,
+                                    int dayOfMonth)
+                            {
+
+                                // Store the value of date with
+                                // format in String type Variable
+                                // Add 1 in month because month
+                                // index is start with 0
+
+
+                                date = new Date(year,month,dayOfMonth);
+
+                                // set this date in TextView for Display
+                                //date_view.setText(Date);
+                            }
+                        });
 
 
 
@@ -135,7 +171,7 @@ public class SignUpScreenActivity extends AppCompatActivity {
                                     user.put("first_name", first_name.getText().toString().trim());
                                     user.put("last_name", last_name.getText().toString().trim());
                                     user.put("points", 0);
-                                    user.put("bday", 1);
+                                    user.put("bday", date.getTime());
 
                                     Log.d(TAG, "Dodawanie danych użytkownika...");
 

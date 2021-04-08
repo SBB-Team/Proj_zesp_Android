@@ -158,7 +158,6 @@
             android:id="@+id/register_bu"
             android:layout_width="wrap_content"
             android:layout_height="55dp"
-            android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/acme"
             android:text="@string/Log_but_sign_up"
@@ -166,7 +165,7 @@
             app:layout_constraintBottom_toTopOf="@+id/privacy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/last_name" />
+            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
         <!--    Text: "Dont have an account"-->
 
@@ -239,6 +238,25 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/password"
             app:layout_constraintStart_toStartOf="@+id/password" />
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/birthday"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/last_name"
+            app:layout_constraintTop_toBottomOf="@+id/last_name" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
