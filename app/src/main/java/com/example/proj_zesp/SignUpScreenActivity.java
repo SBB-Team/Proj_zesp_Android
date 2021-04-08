@@ -147,25 +147,10 @@ public class SignUpScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String emailToText = email.getText().toString();
-
-                if (emailToText.isEmpty() ) {
-                    email.requestFocus();
-                    email.setError("Empty");
+                if (email.getText().toString().equals("") || email.getText().toString() == null) {
+                    email_e.setText("Enter your email");
+                    email_e.setVisibility(View.VISIBLE);
                 }
-                else if (!Patterns.EMAIL_ADDRESS.matcher(emailToText).matches()){
-                    email.requestFocus();
-                    email.setError("Invalid format");
-
-                }
-                else {
-                    return ;
-                }
-
-
-
-
-
 
                  if(password.getText().toString().equals("") || password.getText().toString() == null){
                     password_e.setText("Enter your password");
