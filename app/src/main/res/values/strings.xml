@@ -15,4 +15,6 @@
     <string name="Car_Wash_booking">Car Wash Booking</string>
     <string name="our_location">Our Location</string>
     <string name="prices">Prices</string>
+    <string name="birthday">Date of Birthday</string>
+    <string name="points">Points of loyalty</string>
 </resources>

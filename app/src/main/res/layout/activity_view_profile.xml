@@ -1,9 +1,187 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewProfileActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_gradient" >
+
+
+        <ImageView
+            android:id="@+id/view_profile_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            android:scaleX="2"
+            android:scaleY="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/profile_logo" />
+
+        <TextView
+            android:id="@+id/p_view_profile_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="@string/view_profile_text"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="@+id/view_profile_logo"
+            app:layout_constraintStart_toStartOf="@+id/view_profile_logo"
+            app:layout_constraintTop_toBottomOf="@+id/view_profile_logo" />
+
+        <TextView
+            android:id="@+id/p_first_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="@string/first_name"
+            android:textColor="@color/dark_grey"
+            android:textSize="24sp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/p_view_profile_text" />
+
+        <TextView
+            android:id="@+id/p_second_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="@string/second_name"
+            android:textColor="@color/dark_grey"
+            android:textSize="24sp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/p_first_name" />
+
+        <TextView
+            android:id="@+id/p_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="@string/birthday"
+            android:textColor="@color/dark_grey"
+            android:textSize="24sp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/p_second_name" />
+
+        <TextView
+            android:id="@+id/p_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="@string/email"
+            android:textColor="@color/dark_grey"
+            android:textSize="24sp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/p_birthday" />
+
+        <TextView
+            android:id="@+id/p_points_of_loyalty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="@string/points"
+            android:textColor="@color/dark_grey"
+            android:textSize="24sp"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/p_email" />
+
+        <TextView
+            android:id="@+id/pt_first_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="80dp"
+            android:fontFamily="@font/acme"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/p_first_name"
+            app:layout_constraintTop_toBottomOf="@+id/p_view_profile_text" />
+
+        <TextView
+            android:id="@+id/pt_second_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/acme"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/p_second_name"
+            app:layout_constraintTop_toBottomOf="@+id/pt_first_name" />
+
+        <TextView
+            android:id="@+id/pt_birthday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/acme"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/p_birthday"
+            app:layout_constraintTop_toBottomOf="@+id/pt_second_name" />
+
+        <TextView
+            android:id="@+id/pt_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/acme"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/p_email"
+            app:layout_constraintTop_toBottomOf="@+id/pt_birthday" />
+
+        <TextView
+            android:id="@+id/pt_points"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="35dp"
+            android:fontFamily="@font/acme"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/p_points_of_loyalty"
+            app:layout_constraintTop_toBottomOf="@+id/pt_email" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
