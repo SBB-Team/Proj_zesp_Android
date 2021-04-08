@@ -9,7 +9,7 @@
     <string name="rep_password"><b>Repeat password</b></string>
     <string name="first_name"><b>First name</b></string>
     <string name="second_name"><b>Last name</b></string>
-    <string name="error">error</string>
+    <string name="error">- error -</string>
     <string name="Services">Services</string>
     <string name="view_profile_text">View Profile</string>
     <string name="Car_Wash_booking">Car Wash Booking</string>
