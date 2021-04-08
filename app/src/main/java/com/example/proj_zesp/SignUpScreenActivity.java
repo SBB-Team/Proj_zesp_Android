@@ -48,18 +48,6 @@ public class SignUpScreenActivity extends AppCompatActivity {
 
     private static String TAG = "Yuriy";
 
-    private void init(){
-
-    }
-
-    private void regestration(){
-
-    }
-
-    private void fieldsChecking(){
-
-    }
-
     public static boolean isValidPassword(final String password) {
 
         Pattern pattern;
@@ -69,7 +57,6 @@ public class SignUpScreenActivity extends AppCompatActivity {
         matcher = pattern.matcher(password);
 
         return matcher.matches();
-
     }
 
     @Override
@@ -79,7 +66,6 @@ public class SignUpScreenActivity extends AppCompatActivity {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         //
         Log.d(TAG, ">>Sign up screen");
-        init();
         //
         EditText email = (EditText) findViewById(R.id.email);
         email.setHintTextColor(getResources().getColor(R.color.black));
