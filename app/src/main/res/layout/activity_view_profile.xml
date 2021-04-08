@@ -19,9 +19,10 @@
             android:id="@+id/view_profile_logo"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="40dp"
+            android:contentDescription="@string/view_profile_text"
             android:scaleX="2"
             android:scaleY="2"
             app:layout_constraintEnd_toEndOf="parent"
@@ -55,22 +56,22 @@
             android:gravity="center"
             android:text="@string/first_name"
             android:textColor="@color/dark_grey"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/p_view_profile_text" />
 
         <TextView
-            android:id="@+id/p_second_name"
+            android:id="@+id/p_last_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="43dp"
             android:fontFamily="@font/acme"
             android:gravity="center"
             android:text="@string/second_name"
             android:textColor="@color/dark_grey"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/p_first_name" />
@@ -80,27 +81,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="43dp"
             android:fontFamily="@font/acme"
             android:gravity="center"
             android:text="@string/birthday"
             android:textColor="@color/dark_grey"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/p_second_name" />
+            app:layout_constraintTop_toBottomOf="@+id/p_last_name" />
 
         <TextView
             android:id="@+id/p_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="43dp"
             android:fontFamily="@font/acme"
             android:gravity="center"
             android:text="@string/email"
             android:textColor="@color/dark_grey"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/p_birthday" />
@@ -110,12 +111,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="43dp"
             android:fontFamily="@font/acme"
             android:gravity="center"
             android:text="@string/points"
             android:textColor="@color/dark_grey"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:visibility="visible"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/p_email" />
@@ -124,62 +125,66 @@
             android:id="@+id/pt_first_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="200dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginStart="65dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/acme"
             android:text="@string/error"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/p_view_profile_text" />
+            app:layout_constraintTop_toBottomOf="@+id/p_first_name" />
 
         <TextView
-            android:id="@+id/pt_second_name"
+            android:id="@+id/pt_last_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/acme"
             android:text="@string/error"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/pt_first_name"
-            app:layout_constraintTop_toBottomOf="@+id/pt_first_name" />
+            app:layout_constraintTop_toBottomOf="@+id/p_last_name" />
 
         <TextView
             android:id="@+id/pt_birthday"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/acme"
             android:text="@string/error"
             android:textColor="@color/black"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="@+id/pt_second_name"
-            app:layout_constraintTop_toBottomOf="@+id/pt_second_name" />
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/pt_last_name"
+            app:layout_constraintTop_toBottomOf="@+id/p_birthday" />
 
         <TextView
             android:id="@+id/pt_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/acme"
             android:text="@string/error"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/pt_birthday"
-            app:layout_constraintTop_toBottomOf="@+id/pt_birthday" />
+            app:layout_constraintTop_toBottomOf="@+id/p_email" />
 
         <TextView
             android:id="@+id/pt_points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="8dp"
             android:fontFamily="@font/acme"
             android:text="@string/error"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/pt_email"
-            app:layout_constraintTop_toBottomOf="@+id/pt_email" />
+            app:layout_constraintTop_toBottomOf="@+id/p_points_of_loyalty" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

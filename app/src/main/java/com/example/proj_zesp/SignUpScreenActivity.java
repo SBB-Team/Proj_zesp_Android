@@ -134,6 +134,8 @@ public class SignUpScreenActivity extends AppCompatActivity {
                                     user.put("password", password.getText().toString().trim());
                                     user.put("first_name", first_name.getText().toString().trim());
                                     user.put("last_name", last_name.getText().toString().trim());
+                                    user.put("points", 0);
+                                    user.put("bday", 1);
 
                                     Log.d(TAG, "Dodawanie danych użytkownika...");
 
