@@ -102,7 +102,7 @@
         <ImageView
             android:id="@+id/logo"
             android:layout_width="486dp"
-            android:layout_height="274dp"
+            android:layout_height="270dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/pb_logo"

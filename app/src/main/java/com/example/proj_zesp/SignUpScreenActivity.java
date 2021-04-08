@@ -7,7 +7,9 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
@@ -20,6 +22,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -35,7 +38,6 @@ public class SignUpScreenActivity extends AppCompatActivity {
 
     EditText email, password, password2, first_name, last_name;
     TextView email_e, password_e, password2_e, fname_e, lname_e,privacy;
-
 
 
 
@@ -139,25 +141,30 @@ public class SignUpScreenActivity extends AppCompatActivity {
         signup_btn.setOnClickListener(new View.OnClickListener() {
 
 
+
+
+
             @Override
             public void onClick(View v) {
 
-                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+                String emailToText = email.getText().toString();
 
-
-                if(email.getText().toString().trim().isEmpty()) {
-                    email_e.setText("Enter your email address");
-                    email_e.setVisibility(View.VISIBLE);
-
-                }else {
-                    if (email.getText().toString().trim().matches(emailPattern)) {
-                        email_e.setText("Email address is valid") ;
-                        email_e.setVisibility(View.VISIBLE);
-                    } else {
-                        email_e.setText("Email address is invalid") ;
-                        email_e.setVisibility(View.VISIBLE);
-                    }
+                if (emailToText.isEmpty() ) {
+                    email.requestFocus();
+                    email.setError("Empty");
                 }
+                else if (!Patterns.EMAIL_ADDRESS.matcher(emailToText).matches()){
+                    email.requestFocus();
+                    email.setError("Invalid format");
+
+                }
+                else {
+                    return ;
+                }
+
+
+
+
 
 
                  if(password.getText().toString().equals("") || password.getText().toString() == null){
