@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +28,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SignUpScreenActivity extends AppCompatActivity {
 
@@ -38,6 +41,12 @@ public class SignUpScreenActivity extends AppCompatActivity {
 
     CalendarView calender;
     Date date;
+
+
+
+
+
+
 
     private static String TAG = "Yuriy";
 
@@ -127,9 +136,12 @@ public class SignUpScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+
                 if (email.getText().toString().equals("") || email.getText().toString() == null){
                     email_e.setText("Enter your email");
                     email_e.setVisibility(View.VISIBLE);
+
                 }
                 else if(password.getText().toString().equals("") || password.getText().toString() == null){
                     password_e.setText("Enter your password");
