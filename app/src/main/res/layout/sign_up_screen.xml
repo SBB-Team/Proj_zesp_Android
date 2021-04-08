@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/error"
-            android:textColor="@color/black"
+            android:textColor="@android:color/holo_red_dark"
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/password2"
             app:layout_constraintStart_toStartOf="@+id/password2" />
@@ -153,6 +153,16 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toTopOf="@+id/last_name"
             app:layout_constraintStart_toStartOf="@+id/last_name" />
+
+        <TextView
+            android:id="@+id/bday_e"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/error"
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/bday_pick"
+            app:layout_constraintStart_toStartOf="@+id/bday_pick" />
 
         <Button
             android:id="@+id/register_bu"

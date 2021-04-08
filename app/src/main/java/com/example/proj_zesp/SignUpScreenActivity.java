@@ -10,30 +10,24 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCanceledListener;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -50,12 +44,43 @@ public class SignUpScreenActivity extends AppCompatActivity {
     private FirebaseAuth auth;
     private FirebaseFirestore db;
 
-    private long date_i;
+    private long date_i = 0;
 
     private static String TAG = "Yuriy";
 
-
     private void init(){
+
+    }
+
+    private void regestration(){
+
+    }
+
+    private void fieldsChecking(){
+
+    }
+
+    public static boolean isValidPassword(final String password) {
+
+        Pattern pattern;
+        Matcher matcher;
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(password);
+
+        return matcher.matches();
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.sign_up_screen);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        //
+        Log.d(TAG, ">>Sign up screen");
+        init();
+        //
         EditText email = (EditText) findViewById(R.id.email);
         email.setHintTextColor(getResources().getColor(R.color.black));
 
@@ -76,27 +101,21 @@ public class SignUpScreenActivity extends AppCompatActivity {
         TextView password2_e = (TextView) findViewById(R.id.password2_e);
         TextView fname_e = (TextView) findViewById(R.id.fname_e);
         TextView lname_e = (TextView) findViewById(R.id.lname_e);
+        TextView bday_e = (TextView) findViewById(R.id.bday_e);
 
         signup_btn = (Button) findViewById(R.id.register_bu);
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
-    }
-
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_up_screen);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         //
-        Log.d(TAG, ">>Sign up screen");
-        init();
+
+        TextView birthday_picker = (TextView) findViewById(R.id.bday_pick) ;
+        birthday_picker.setHintTextColor(getResources().getColor(R.color.black));
 
         DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                month+=1;
+                year-=1900;
                 Log.d(TAG, "Wybrana data: "+dayOfMonth+":"+month+":"+year);
 
                 Date date = new Date(year,month,dayOfMonth);
@@ -105,8 +124,7 @@ public class SignUpScreenActivity extends AppCompatActivity {
             }
         };
 
-        TextView birthday_picker = (TextView) findViewById(R.id.bday_pick) ;
-        birthday_picker.setHintTextColor(getResources().getColor(R.color.black));
+
         birthday_picker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,118 +153,98 @@ public class SignUpScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-//
-//                if (email.getText().toString().equals("") || email.getText().toString() == null){
-//                    email_e.setText("Enter your email");
-//                    email_e.setVisibility(View.VISIBLE);
-
-
-
-                String emailToText = email.getText().toString();
-
                 if (email.getText().toString().equals("") || email.getText().toString() == null) {
                     email_e.setText("Email field is empty");
                     email_e.setVisibility(View.VISIBLE);
                 }
-                else if (!Patterns.EMAIL_ADDRESS.matcher(emailToText).matches())
+                else if (!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches())
                 {
                     email_e.setText("Email is invalid");
                     email_e.setVisibility(View.VISIBLE);
                 }
-                else
-                    {
-//
-                    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                 if(password.getText().toString().equals("") || password.getText().toString() == null){
-                    password_e.setText("Enter your password: ");
+                else if(password.getText().toString().equals("") || password.getText().toString() == null){
+                    password_e.setText("Enter your password");
+                    password_e.setVisibility(View.VISIBLE);
+                    email_e.setVisibility(View.INVISIBLE);
+                }
+                else if(!isValidPassword(password.getText().toString().trim())){
+                    password_e.setText("Try better password");
                     password_e.setVisibility(View.VISIBLE);
                 }
-
-
                 else if(password2.getText().toString().equals("") || password2.getText().toString() == null){
-                    password2_e.setText("Repeat your password: ");
+                    password2_e.setText("Repeat your password");
                     password2_e.setVisibility(View.VISIBLE);
                     password_e.setVisibility(View.INVISIBLE);
                 }
                 else if(!password2.getText().toString().equals(password.getText().toString())){
-                    password2_e.setText("Repeat your password properly: ");
+                    password2_e.setText("Repeat your password properly");
                     password2_e.setVisibility(View.VISIBLE);
                     password_e.setVisibility(View.INVISIBLE);
                 }
                 else if(first_name.getText().toString().equals("") || first_name.getText().toString() == null){
-                    fname_e.setText("Enter your first name: ");
+                    fname_e.setText("Enter your first name");
                     fname_e.setVisibility(View.VISIBLE);
                     password2_e.setVisibility(View.INVISIBLE);
                 }
                 else if(last_name.getText().toString().equals("") || last_name.getText().toString() == null){
-                    lname_e.setText("Enter your last name: ");
+                    lname_e.setText("Enter your last name");
                     lname_e.setVisibility(View.VISIBLE);
                     fname_e.setVisibility(View.INVISIBLE);
                 }
-                else {
+                else if(date_i == 0 || date_i >= (new Date().getTime())){
                     lname_e.setVisibility(View.INVISIBLE);
+                    bday_e.setText("Choose date of your birthday");
+                    bday_e.setVisibility(View.VISIBLE);
+                }
+                else {
+                    bday_e.setVisibility(View.INVISIBLE);
 
-
+                    //
                     Log.d(TAG,"Rejestracja zaczyna się");
                     auth.createUserWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim())
-                    .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-                        @Override
-                        public void onSuccess(AuthResult authResult) {
-                            Map<String, Object> user = new HashMap<>();
-                                    user.put("email", email.getText().toString().trim().toLowerCase());
-                                    user.put("password", password.getText().toString().trim());
-                                    user.put("first_name", first_name.getText().toString().trim());
-                                    user.put("last_name", last_name.getText().toString().trim());
-                                    user.put("points", 0);
-                                    user.put("bday", date_i);
+                            .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+                                  @Override
+                                  public void onSuccess(AuthResult authResult) {
+                                      Map<String, Object> user = new HashMap<>();
+                                      user.put("email", email.getText().toString().trim().toLowerCase());
+                                      user.put("password", password.getText().toString().trim());
+                                      user.put("first_name", first_name.getText().toString().trim());
+                                      user.put("last_name", last_name.getText().toString().trim());
+                                      user.put("points", 0);
+                                      user.put("bday", date_i);
 
-                                    Log.d(TAG, "Dodawanie danych użytkownika...");
+                                      Log.d(TAG, "Dodawanie danych użytkownika...");
 
-                                    db.collection("users").document(email.getText().toString().trim().toLowerCase())
-                                            .set(user)
-                                            .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                                @Override
-                                                public void onSuccess(Void aVoid) {
-                                                    Log.d(TAG, "Dane użytkownika zostały dodane!");
-                                                }
-                                            })
-                                            .addOnFailureListener(new OnFailureListener() {
-                                                @Override
-                                                public void onFailure(@NonNull Exception e) {
-                                                    Log.w(TAG, "Pomyłka przy dodaniu danych użytkownika", e);
-                                                }
-                                            }).addOnCanceledListener(new OnCanceledListener() {
-                                        @Override
-                                        public void onCanceled() {
-                                            Log.d(TAG, "Dodanie danych użytkowników anulowane");
-                                        }
-                                    });
-                        }
-
-                    });
+                                      db.collection("users").document(email.getText().toString().trim().toLowerCase())
+                                              .set(user)
+                                              .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                                  @Override
+                                                  public void onSuccess(Void aVoid) {
+                                                      Log.d(TAG, "Dane użytkownika zostały dodane!");
+                                                  }
+                                              })
+                                              .addOnFailureListener(new OnFailureListener() {
+                                                  @Override
+                                                  public void onFailure(@NonNull Exception e) {
+                                                      Log.w(TAG, "Pomyłka przy dodaniu danych użytkownika", e);
+                                                  }
+                                              }).addOnCanceledListener(new OnCanceledListener() {
+                                                                           @Override
+                                                                           public void onCanceled() {
+                                                                               Log.d(TAG, "Dodanie danych użytkowników anulowane");
+                                                                           }
+                                                                       }
+                                      );
+                                  }
+                              }
+                            );
+                    //
 
                     auth.signOut();
+
                     Intent i = new Intent(getApplicationContext(), FirstStartScreen.class);
                     startActivity(i);
-
                     finish();
-
                 }
             }
         });
