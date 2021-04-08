@@ -165,7 +165,7 @@
             app:layout_constraintBottom_toTopOf="@+id/privacy"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/calendarView" />
+            app:layout_constraintTop_toBottomOf="@+id/bday_pick" />
 
         <!--    Text: "Dont have an account"-->
 
@@ -239,22 +239,21 @@
             app:layout_constraintBottom_toTopOf="@+id/password"
             app:layout_constraintStart_toStartOf="@+id/password" />
 
-        <CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
         <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/bday_pick"
+            android:layout_width="321dp"
+            android:layout_height="55dp"
             android:layout_marginTop="16dp"
-            android:text="@string/birthday"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:padding="10dp"
+            android:hint="@string/birthday"
+            android:textAlignment="textStart"
             android:textSize="18sp"
+            android:ems="10"
+            android:background="#0d000000"
+            android:fontFamily="@font/acme"
+            app:layout_constraintEnd_toEndOf="@+id/last_name"
             app:layout_constraintStart_toStartOf="@+id/last_name"
             app:layout_constraintTop_toBottomOf="@+id/last_name" />
 

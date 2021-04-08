@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -13,6 +16,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +32,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -36,78 +42,20 @@ import java.util.regex.Pattern;
 
 public class SignUpScreenActivity extends AppCompatActivity {
 
-    EditText email, password, password2, first_name, last_name;
-    TextView email_e, password_e, password2_e, fname_e, lname_e,privacy;
+    private EditText email = null, password, password2, first_name, last_name;
+    private TextView email_e, password_e, password2_e, fname_e, lname_e, privacy;
+    private TextView birthday_picker = null;
+    private Button signup_btn;
 
+    private FirebaseAuth auth;
+    private FirebaseFirestore db;
 
-
-    FirebaseAuth auth;
-    FirebaseFirestore db;
-    DatabaseReference users;
-
-    CalendarView calender;
-    Date date;
-
-
-
+    private long date_i;
 
     private static String TAG = "Yuriy";
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_up_screen);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        //
-        Log.d(TAG, ">>Sign up screen");
 
-        TextView email_e = (TextView) findViewById(R.id.email_e);
-        TextView password_e = (TextView) findViewById(R.id.password_e);
-        TextView password2_e = (TextView) findViewById(R.id.password2_e);
-        TextView fname_e = (TextView) findViewById(R.id.fname_e);
-        TextView lname_e = (TextView) findViewById(R.id.lname_e);
-
-        TextView privacy = (TextView) findViewById(R.id.privacy);
-
-        calender = (CalendarView) findViewById(R.id.calendarView);
-
-        calender
-                .setOnDateChangeListener(
-                        new CalendarView
-                                .OnDateChangeListener() {
-                            @Override
-
-                            // In this Listener have one method
-                            // and in this method we will
-                            // get the value of DAYS, MONTH, YEARS
-
-                            public void onSelectedDayChange(
-                                    @NonNull CalendarView view,
-                                    int year,
-                                    int month,
-                                    int dayOfMonth)
-                            {
-
-                                // Store the value of date with
-                                // format in String type Variable
-                                // Add 1 in month because month
-                                // index is start with 0
-
-
-                                date = new Date(year,month,dayOfMonth);
-
-                                // set this date in TextView for Display
-                                //date_view.setText(Date);
-                            }
-                        });
-
-
-
-        db = FirebaseFirestore.getInstance();
-        auth = FirebaseAuth.getInstance();
-
-
-
+    private void init(){
         EditText email = (EditText) findViewById(R.id.email);
         email.setHintTextColor(getResources().getColor(R.color.black));
 
@@ -123,10 +71,57 @@ public class SignUpScreenActivity extends AppCompatActivity {
         EditText last_name = (EditText) findViewById(R.id.last_name);
         last_name.setHintTextColor(getResources().getColor(R.color.black));
 
+        TextView email_e = (TextView) findViewById(R.id.email_e);
+        TextView password_e = (TextView) findViewById(R.id.password_e);
+        TextView password2_e = (TextView) findViewById(R.id.password2_e);
+        TextView fname_e = (TextView) findViewById(R.id.fname_e);
+        TextView lname_e = (TextView) findViewById(R.id.lname_e);
 
-        Button signup_btn = (Button) findViewById(R.id.register_bu);
+        signup_btn = (Button) findViewById(R.id.register_bu);
+
+        db = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
+    }
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.sign_up_screen);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+        //
+        Log.d(TAG, ">>Sign up screen");
+        init();
+
+        DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month+=1;
+                Log.d(TAG, "Wybrana data: "+dayOfMonth+":"+month+":"+year);
+
+                Date date = new Date(year,month,dayOfMonth);
+                date_i = date.getTime();
+                birthday_picker.setText(dayOfMonth+":"+month+":"+year);
+            }
+        };
+
+        TextView birthday_picker = (TextView) findViewById(R.id.bday_pick) ;
+        birthday_picker.setHintTextColor(getResources().getColor(R.color.black));
+        birthday_picker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int year = 2000, month = 0, day = 1;
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        SignUpScreenActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth,
+                        listener, year, month, day);
+                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                datePickerDialog.show();
+            }
+        });
+
+        TextView privacy = (TextView) findViewById(R.id.privacy);
         privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,14 +131,7 @@ public class SignUpScreenActivity extends AppCompatActivity {
         });
 
 
-
-
         signup_btn.setOnClickListener(new View.OnClickListener() {
-
-
-
-
-
             @Override
             public void onClick(View v) {
 
@@ -226,7 +214,7 @@ public class SignUpScreenActivity extends AppCompatActivity {
                                     user.put("first_name", first_name.getText().toString().trim());
                                     user.put("last_name", last_name.getText().toString().trim());
                                     user.put("points", 0);
-                                    user.put("bday", date.getTime());
+                                    user.put("bday", date_i);
 
                                     Log.d(TAG, "Dodawanie danych użytkownika...");
 

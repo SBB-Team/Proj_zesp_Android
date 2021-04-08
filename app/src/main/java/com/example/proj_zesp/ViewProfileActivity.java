@@ -19,6 +19,9 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 public class ViewProfileActivity extends AppCompatActivity {
@@ -55,14 +58,11 @@ public class ViewProfileActivity extends AppCompatActivity {
         email.setText(document.getString("email"));
         first_name.setText(document.getString("first_name"));
         last_name.setText(document.getString("last_name"));
-        Timestamp tstamp = document.getTimestamp("bday");
-        int day = tstamp.toDate().getDay();
-        int month = tstamp.toDate().getMonth();
-        int year = tstamp.toDate().getYear();
-        DateFormat df = DateFormat.getDateInstance(DateFormat.MEDIUM, Locale.GERMAN);
 
-        date_of_birthday.setText(df.format(tstamp.toDate()));
-        //date_of_birthday.setText(day+":"+month+":"+year);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        String dateString = formatter.format(document.getLong("bday"));
+
+        date_of_birthday.setText(dateString);
 
         points_of_loyalty.setText(document.get("points").toString());
     }
