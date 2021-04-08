@@ -35,15 +35,16 @@ public class SignUpScreenActivity extends AppCompatActivity {
 
     EditText email, password, password2, first_name, last_name;
     TextView email_e, password_e, password2_e, fname_e, lname_e,privacy;
+
+
+
+
     FirebaseAuth auth;
     FirebaseFirestore db;
     DatabaseReference users;
 
     CalendarView calender;
     Date date;
-
-
-
 
 
 
@@ -77,6 +78,7 @@ public class SignUpScreenActivity extends AppCompatActivity {
                             // In this Listener have one method
                             // and in this method we will
                             // get the value of DAYS, MONTH, YEARS
+
                             public void onSelectedDayChange(
                                     @NonNull CalendarView view,
                                     int year,
@@ -132,18 +134,33 @@ public class SignUpScreenActivity extends AppCompatActivity {
         });
 
 
+
+
         signup_btn.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View v) {
 
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
 
-                if (email.getText().toString().equals("") || email.getText().toString() == null){
-                    email_e.setText("Enter your email");
+                if(email.getText().toString().trim().isEmpty()) {
+                    email_e.setText("Enter your email address");
                     email_e.setVisibility(View.VISIBLE);
 
+                }else {
+                    if (email.getText().toString().trim().matches(emailPattern)) {
+                        email_e.setText("Email address is valid") ;
+                        email_e.setVisibility(View.VISIBLE);
+                    } else {
+                        email_e.setText("Email address is invalid") ;
+                        email_e.setVisibility(View.VISIBLE);
+                    }
                 }
-                else if(password.getText().toString().equals("") || password.getText().toString() == null){
+
+
+                 if(password.getText().toString().equals("") || password.getText().toString() == null){
                     password_e.setText("Enter your password");
                     password_e.setVisibility(View.VISIBLE);
                     email_e.setVisibility(View.INVISIBLE);
