@@ -147,33 +147,67 @@ public class SignUpScreenActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+
+//
+//                if (email.getText().toString().equals("") || email.getText().toString() == null){
+//                    email_e.setText("Enter your email");
+//                    email_e.setVisibility(View.VISIBLE);
+
+
+
+                String emailToText = email.getText().toString();
+
                 if (email.getText().toString().equals("") || email.getText().toString() == null) {
-                    email_e.setText("Enter your email");
+                    email_e.setText("Email field is empty");
                     email_e.setVisibility(View.VISIBLE);
                 }
+                else if (!Patterns.EMAIL_ADDRESS.matcher(emailToText).matches())
+                {
+                    email_e.setText("Email is invalid");
+                    email_e.setVisibility(View.VISIBLE);
+                }
+                else
+                    {
+//
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                  if(password.getText().toString().equals("") || password.getText().toString() == null){
-                    password_e.setText("Enter your password");
+                    password_e.setText("Enter your password: ");
                     password_e.setVisibility(View.VISIBLE);
-                    email_e.setVisibility(View.INVISIBLE);
                 }
+
+
                 else if(password2.getText().toString().equals("") || password2.getText().toString() == null){
-                    password2_e.setText("Repeat your password");
+                    password2_e.setText("Repeat your password: ");
                     password2_e.setVisibility(View.VISIBLE);
                     password_e.setVisibility(View.INVISIBLE);
                 }
                 else if(!password2.getText().toString().equals(password.getText().toString())){
-                    password2_e.setText("Repeat your password properly");
+                    password2_e.setText("Repeat your password properly: ");
                     password2_e.setVisibility(View.VISIBLE);
                     password_e.setVisibility(View.INVISIBLE);
                 }
                 else if(first_name.getText().toString().equals("") || first_name.getText().toString() == null){
-                    fname_e.setText("Enter your first name");
+                    fname_e.setText("Enter your first name: ");
                     fname_e.setVisibility(View.VISIBLE);
                     password2_e.setVisibility(View.INVISIBLE);
                 }
                 else if(last_name.getText().toString().equals("") || last_name.getText().toString() == null){
-                    lname_e.setText("Enter your last name");
+                    lname_e.setText("Enter your last name: ");
                     lname_e.setVisibility(View.VISIBLE);
                     fname_e.setVisibility(View.INVISIBLE);
                 }
