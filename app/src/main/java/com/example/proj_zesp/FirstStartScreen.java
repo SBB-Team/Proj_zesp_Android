@@ -40,7 +40,6 @@ public class FirstStartScreen extends AppCompatActivity {
 
     private static String TAG = "Yuriy";
 
-
     private void showRegScreen(){
         Intent SecAct = new Intent(this, SignUpScreenActivity.class);
         startActivity(SecAct);
