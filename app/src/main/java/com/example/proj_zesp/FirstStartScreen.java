@@ -43,6 +43,7 @@ public class FirstStartScreen extends AppCompatActivity {
     private void showRegScreen(){
         Intent SecAct = new Intent(this, SignUpScreenActivity.class);
         startActivity(SecAct);
+        overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
     }
 
     @Override
