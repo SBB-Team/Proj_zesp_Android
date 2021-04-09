@@ -70,6 +70,7 @@ public class FirstStartScreen extends AppCompatActivity {
         if (auth.getCurrentUser() != null){
             Log.d(TAG, "Zalogowany email: " + auth.getCurrentUser().getEmail());
             Intent i = new Intent(getApplicationContext(), MainMenu.class);
+            overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
             startActivity(i);
             finish();
         }

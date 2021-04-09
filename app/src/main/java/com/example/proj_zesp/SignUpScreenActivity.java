@@ -230,6 +230,7 @@ public class SignUpScreenActivity extends AppCompatActivity {
 
                     Intent i = new Intent(getApplicationContext(), FirstStartScreen.class);
                     startActivity(i);
+                    overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
                     finish();
                 }
             }

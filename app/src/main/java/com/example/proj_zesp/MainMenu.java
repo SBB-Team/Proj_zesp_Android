@@ -61,6 +61,7 @@ public class MainMenu extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), ViewProfileActivity.class);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
             }
         });
 
