@@ -84,4 +84,12 @@ public class ViewProfileActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void finish(){
+
+        super.finish();
+        overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
+
+    }
 }

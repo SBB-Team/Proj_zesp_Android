@@ -112,6 +112,7 @@ public class FirstStartScreen extends AppCompatActivity {
                                 Log.d(TAG,"Udało się zalogować");
                                 Intent i = new Intent(getApplicationContext(), MainMenu.class);
                                 startActivity(i);
+                                overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
                                 finish();
                             }else{
                                 Log.d(TAG,"Nie udało się zalogować, bo: "+task.getException().getMessage());
