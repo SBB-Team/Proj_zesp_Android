@@ -17,4 +17,8 @@
     <string name="prices">Prices</string>
     <string name="birthday"><b>Date of Birthday</b></string>
     <string name="points"><b>Points of loyalty</b></string>
+    <string name="check_availability">Check availability</string>
+    <string name="choose_date"><b>Choose date:</b></string>
+    <string name="choose_hour"><b>Choose hour:</b></string>
+    <string name="change">Change</string>
 </resources>
