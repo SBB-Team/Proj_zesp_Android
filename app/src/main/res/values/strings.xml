@@ -24,4 +24,16 @@
     <string name="choose_station"><b>Choose station:</b></string>
     <string name="title_activity_maps">Map</string>
     <string name="logout_btn">Logout</string>
+
+    <string name="paliwo1">Paliwo1</string>
+    <string name="paliwo1_cena">Paliwo1 Cena</string>
+
+    <string name="paliwo2">Paliwo2</string>
+    <string name="paliwo2_cena">Paliwo2-Cena</string>
+
+    <string name="paliwo3">Paliwo3</string>
+    <string name="paliwo3_cena">Paliwo3-Cena</string>
+
+    <string name="paliwo4">Paliwo4</string>
+    <string name="paliwo4_cena">Paliwo4-Cena</string>
 </resources>

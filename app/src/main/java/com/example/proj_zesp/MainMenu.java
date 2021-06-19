@@ -90,5 +90,16 @@ public class MainMenu extends AppCompatActivity {
             }
         });
         // Moving to MapsActivity - finish
+
+        // Moving to PricesActivity - start
+        prices_logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), PricesActivity.class);
+                startActivity(i);
+                overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
+            }
+        });
+        // Moving to PricesActivity - finish
     }
 }

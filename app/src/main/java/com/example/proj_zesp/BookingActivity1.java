@@ -62,7 +62,7 @@ public class BookingActivity1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking1);
-        Log.d(TAG,">>Boocking screen 1");
+        Log.d(TAG,">>Booking screen 1");
 
 
         check_availability = (Button) findViewById(R.id.check_av_but);

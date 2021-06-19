@@ -4,8 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +37,7 @@ public class ViewProfileActivity extends AppCompatActivity {
     private static String TAG = "Yuriy";
     private FirebaseAuth auth;
     private DocumentSnapshot document;
+    ProgressDialog dialog;
     // Creating instances - finish
 
     //  Getter from db to TextView`s - start
@@ -76,13 +79,29 @@ public class ViewProfileActivity extends AppCompatActivity {
         points_of_loyalty.setText(document.get("points").toString());
         // Text setters - finish
     }
-    // Setting text - finish
+        // Setting text - finish
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_profile);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
+        // Loading dialog - start
+        dialog = new ProgressDialog(ViewProfileActivity.this);
+        dialog.setMessage("Loading...");
+        dialog.show();
+        dialog.setCancelable(false);
+        // Loading dialog - finish
+
+        //Handler (waiting for 2 seconds before dialog disappears) - start
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                dialog.dismiss();
+            }
+        }, 2000);
+        //Handler (waiting for 2 seconds before dialog disappears) - finish
 
         //Creating instances - start
         auth = FirebaseAuth.getInstance();
