@@ -29,7 +29,7 @@ public class ViewProfileActivity extends AppCompatActivity {
     private TextView first_name, last_name, email, points_of_loyalty, date_of_birthday;
     private FirebaseFirestore db;
     private static String TAG = "Yuriy";
-    DocumentSnapshot document; /// to jest zle
+    DocumentSnapshot document; /// to jest źle
 
 
     private void getDataAndSetTexts(String current_user){

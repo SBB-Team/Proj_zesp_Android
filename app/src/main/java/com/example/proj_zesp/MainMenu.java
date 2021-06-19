@@ -67,6 +67,17 @@ public class MainMenu extends AppCompatActivity {
         });
 
 
+        //Jump to Our Location Activity
+        location_logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(i);
+                overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
+            }
+        });
+
+
 
 
     }
