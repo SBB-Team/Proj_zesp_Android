@@ -80,7 +80,6 @@
         android:id="@+id/register_bu"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
-        android:layout_marginBottom="16dp"
         android:fontFamily="@font/acme"
         android:text="@string/Log_but_sign_up"
         app:backgroundTint="#79ADF6"

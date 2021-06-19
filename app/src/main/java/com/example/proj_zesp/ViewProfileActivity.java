@@ -4,9 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -29,16 +33,21 @@ public class ViewProfileActivity extends AppCompatActivity {
     private TextView first_name, last_name, email, points_of_loyalty, date_of_birthday;
     private FirebaseFirestore db;
     private static String TAG = "Yuriy";
+
+    //
+    FirebaseAuth auth;
+    //
+
+
+
     DocumentSnapshot document; /// to jest źle
 
-    private void showLoading(){  /////////////////////////////// zrobić
 
-    }
 
     private void getDataAndSetTexts(String current_user){
         db = FirebaseFirestore.getInstance();
         Log.d(TAG, "Pobieranie danych");
-        showLoading();
+
         DocumentReference docRef = db.collection("users").document(current_user);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -77,17 +86,40 @@ public class ViewProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_profile);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
+        auth = FirebaseAuth.getInstance();
+
         first_name = (TextView) findViewById(R.id.pt_first_name);
         last_name = (TextView) findViewById(R.id.pt_last_name);
         email = (TextView) findViewById(R.id.pt_email);
         points_of_loyalty = (TextView) findViewById(R.id.pt_points);
         date_of_birthday = (TextView) findViewById(R.id.pt_birthday);
+        ImageView logo = (ImageView) findViewById(R.id.logo);
+        Button logout_btn = (Button) findViewById(R.id.logout_btn);
 
         getDataAndSetTexts(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
+        // LOGOUT ON CLICK METHOD - start
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //
+                auth.signOut();
+                //
+                finish();
+                Intent i = new Intent(getApplicationContext(), FirstStartScreen.class);
+                startActivity(i);
+                overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
+                finish();
+
+            }
+        });
+        // LOGOUT ON CLICK METHOD - finish
 
 
 
     }
+
+
 
     @Override
     public void finish(){
