@@ -20,7 +20,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private static String TAG = "Yuriy";
-    private FirebaseFirestore db;
+//    private FirebaseFirestore db;
     private MarkerOptions options = new MarkerOptions();
     LatLng Krakow = new LatLng(50.08, 19.99);
     LatLng GS1 =new LatLng(50.086876, 19.990734);
@@ -89,10 +89,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        );
 //    }
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,7 +106,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         GasStaionList.add(GS3);
 
     }
-
 
 
     /**
