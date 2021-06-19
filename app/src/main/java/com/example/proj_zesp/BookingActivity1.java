@@ -172,6 +172,7 @@ public class BookingActivity1 extends AppCompatActivity {
 
                     } else {
                         Log.d(TAG, "Document does not exist!");
+
                     }
                 } else {
                     Log.d(TAG, "Failed with: ", task.getException());
