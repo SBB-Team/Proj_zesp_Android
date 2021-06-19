@@ -29,7 +29,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private ArrayList<LatLng> GasStaionList;
     DocumentSnapshot document;
-
+//blabla
 //    private void getDataAndSetTexts(String coords){
 //        db = FirebaseFirestore.getInstance();
 //        Log.d(TAG, "Pobieranie danych");
