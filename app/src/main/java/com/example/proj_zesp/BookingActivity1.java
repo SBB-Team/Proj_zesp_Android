@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -37,9 +36,13 @@ public class BookingActivity1 extends AppCompatActivity {
     private TextView date_text, hour_text;
     private Spinner station_spinner;
 
-    private Date current_data;
+    private Date current_date;
+    private Date booking_date;
 
     private ArrayList<String> stations_str = new ArrayList<String>();
+    private ArrayAdapter<String> adapter;
+
+    private DocumentSnapshot document;
 
     private static String TAG = "Yuriy";
 
@@ -58,14 +61,14 @@ public class BookingActivity1 extends AppCompatActivity {
 
         getStations();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
+        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         station_spinner = (Spinner) findViewById(R.id.station_spinner);
         station_spinner.setAdapter(adapter);
         station_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(TAG, "Station: " + stations_str.get(position));
+                Log.d(TAG, "Station choosed: " + stations_str.get(position));
             }
 
             @Override
@@ -75,8 +78,9 @@ public class BookingActivity1 extends AppCompatActivity {
         });
 
 
+
         long millis= System.currentTimeMillis();
-        current_data = new Date(millis);
+        current_date = new Date(millis);
 
         date_but.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +96,7 @@ public class BookingActivity1 extends AppCompatActivity {
                     public void onDateSet(DatePicker view, int myear, int mmonth, int mdayOfMonth) {
                         date_text.setText(mdayOfMonth + "/" + mmonth+1 + "/" + myear);
                         date_text.setVisibility(View.VISIBLE);
+
                     }
                 }, year, month, day);
                 datePickerDialog.show();
@@ -119,15 +124,16 @@ public class BookingActivity1 extends AppCompatActivity {
         check_availability.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),BookingActivity2.class);
-                //i.pu
+                check_availability_meth();
             }
         });
 
     }
 
+    private void check_availability_meth(){
 
-    private DocumentSnapshot document;
+    }
+
 
     private ArrayList<String> getStations(){
         DocumentReference docRef = FirebaseFirestore.getInstance().collection("stations").document("Stations_count_names");
@@ -142,7 +148,9 @@ public class BookingActivity1 extends AppCompatActivity {
                             int count = 1;
                             do{
                                 stations_str.add(document.getString(String.valueOf(count)));
-                            }while(count != document.getLong("count"));
+                                adapter.add(document.getString(String.valueOf(count)));
+                                count++;
+                            }while(count-1 != document.getLong("count"));
                         }
 
                     } else {

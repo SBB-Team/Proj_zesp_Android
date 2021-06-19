@@ -31,10 +31,14 @@ public class ViewProfileActivity extends AppCompatActivity {
     private static String TAG = "Yuriy";
     DocumentSnapshot document; /// to jest źle
 
+    private void showLoading(){  /////////////////////////////// zrobić
+
+    }
 
     private void getDataAndSetTexts(String current_user){
         db = FirebaseFirestore.getInstance();
         Log.d(TAG, "Pobieranie danych");
+        showLoading();
         DocumentReference docRef = db.collection("users").document(current_user);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
