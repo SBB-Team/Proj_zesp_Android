@@ -186,5 +186,19 @@
             app:layout_constraintStart_toStartOf="@+id/pt_email"
             app:layout_constraintTop_toBottomOf="@+id/p_points_of_loyalty" />
 
+        <Button
+            android:id="@+id/logout_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="75dp"
+            android:layout_marginBottom="35dp"
+            android:text="@string/logout_btn"
+            app:backgroundTint="#79ADF6"
+            android:fontFamily="@font/acme"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pt_points" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
