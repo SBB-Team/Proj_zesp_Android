@@ -17,8 +17,12 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -26,6 +30,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class BookingActivity1 extends AppCompatActivity {
 
@@ -45,7 +51,12 @@ public class BookingActivity1 extends AppCompatActivity {
 
     private DocumentSnapshot document;
 
+    private FirebaseAuth auth;
+    private FirebaseFirestore db;
+
     private static String TAG = "Yuriy";
+
+    private String dateForBooking = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,17 +77,6 @@ public class BookingActivity1 extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         station_spinner = (Spinner) findViewById(R.id.station_spinner);
         station_spinner.setAdapter(adapter);
-        station_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(TAG, "Station choosed: " + stations_str.get(position));
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
 
 
@@ -94,7 +94,8 @@ public class BookingActivity1 extends AppCompatActivity {
                 datePickerDialog = new DatePickerDialog(BookingActivity1.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int myear, int mmonth, int mdayOfMonth) {
-                        date_text.setText(mdayOfMonth + "/" + mmonth+1 + "/" + myear);
+                        date_text.setText(((mdayOfMonth<10) ? "0"+mdayOfMonth : mdayOfMonth)
+                                + ":" + ((mmonth<10) ? "0"+(mmonth+1) : (mmonth+1)) + ":" + myear);
                         date_text.setVisibility(View.VISIBLE);
 
                     }
@@ -111,7 +112,8 @@ public class BookingActivity1 extends AppCompatActivity {
                 timePickerDialog = new TimePickerDialog(BookingActivity1.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-                        hour_text.setText(hourOfDay + ":" + minute);
+                        hour_text.setText(((hourOfDay<10) ? "0"+hourOfDay : hourOfDay) + ":" +
+                                ((minute<10) ? "0"+minute : minute));
                         hour_text.setVisibility(View.VISIBLE);
                     }
                 }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE),true);
@@ -129,24 +131,25 @@ public class BookingActivity1 extends AppCompatActivity {
     }
 
     private void check_availability_meth(){
-        String dateForBooking = "";
+
 
 
         switch (station_spinner.getSelectedItem().toString()){
             case "station1":
-                dateForBooking+="1_";
+                dateForBooking+="001_";
                 break;
             case "station2":
-                dateForBooking+="2_";
+                dateForBooking+="002_";
                 break;
         }
 
         if(date_text != null && !hour_text.getText().equals("") && !date_text.getText().equals("- error -")){
-            dateForBooking += date_text.getText().subSequence(0,3) + ":";
-            dateForBooking += date_text.getText().subSequence(5,6) + ":";
-            dateForBooking += date_text.getText().subSequence(8,9);
+//            dateForBooking += date_text.getText().subSequence(6,9) + ":"; //year
+//            dateForBooking += date_text.getText().subSequence(3,4) + ":"; //month
+//            dateForBooking += date_text.getText().subSequence(0,1);       //day
+            dateForBooking += date_text.getText() + "_";
         }else{
-            Toast toast = Toast.makeText(getApplicationContext(), "Choose data for your booking", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(getApplicationContext(), "Choose date for your booking", Toast.LENGTH_LONG);
             toast.show();
         }
 
@@ -158,9 +161,12 @@ public class BookingActivity1 extends AppCompatActivity {
             toast.show();
         }
 
-        Log.d(TAG,"Choosed data: " + dateForBooking);
+        Log.d(TAG,"Date: _" + date_text.getText() +"_");
         DocumentReference documentReference = FirebaseFirestore.getInstance().collection("booking").document(dateForBooking);
 
+
+        db = FirebaseFirestore.getInstance();
+        auth = FirebaseAuth.getInstance();
 
         documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override
@@ -168,11 +174,41 @@ public class BookingActivity1 extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        Log.d(TAG, "Document exists!");
-
+                        Log.d(TAG, "Date already booked");
+                        Toast toast = Toast.makeText(getApplicationContext(), "Choosen date is already booked", Toast.LENGTH_LONG);
+                        toast.show();
                     } else {
-                        Log.d(TAG, "Document does not exist!");
+                        Log.d(TAG, "Date is free");
 
+                        Map<String, Object> choosedDate = new HashMap<>();
+                        choosedDate.put("day", date_text.getText().subSequence(0,2));
+                        choosedDate.put("hour", hour_text.getText().subSequence(0,2));
+                        choosedDate.put("minute", hour_text.getText().subSequence(3,5));
+                        choosedDate.put("month", date_text.getText().subSequence(3,5));
+                        choosedDate.put("station_id", dateForBooking.subSequence(0,3));
+                        choosedDate.put("year", date_text.getText().subSequence(6,10));
+
+
+
+
+                        db.collection("booking").document(dateForBooking)
+                                .set(choosedDate)
+                                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                    @Override
+                                    public void onSuccess(Void aVoid) {
+                                        Log.d(TAG, "Date was booked!");
+                                        Toast toast = Toast.makeText(getApplicationContext(), "You have booked that date", Toast.LENGTH_LONG);
+                                        toast.show();
+                                        finish();
+                                    }
+                                })
+                                .addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception e) {
+                                        Log.w(TAG, "Error during adding", e);
+                                    }
+                                }
+                        );
                     }
                 } else {
                     Log.d(TAG, "Failed with: ", task.getException());
@@ -190,7 +226,7 @@ public class BookingActivity1 extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     document = task.getResult();
                     if (document.exists()) {
-                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                        //Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         if (document.getLong("count")>=1){
                             int count = 1;
                             do{
