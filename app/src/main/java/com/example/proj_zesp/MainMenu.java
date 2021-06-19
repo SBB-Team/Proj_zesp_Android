@@ -66,6 +66,15 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
+        car_wash_booking_logo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),BookingActivity1.class);
+                startActivity(i);
+                overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
+            }
+        });
+
 
         //Jump to Our Location Activity
         location_logo.setOnClickListener(new View.OnClickListener() {

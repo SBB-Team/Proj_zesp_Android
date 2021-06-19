@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ViewProfileActivity"
+    android:fillViewport="true"
+    >
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_gradient" >
+
+
+        <ImageView
+            android:id="@+id/calendar_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="40dp"
+            android:scaleX="2"
+            android:scaleY="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/calendar_logo" />
+
+        <TextView
+            android:id="@+id/p_view_profile_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="@string/Car_Wash_booking"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/calendar_logo" />
+
+        <Button
+            android:id="@+id/check_av_but"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_availability"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/date_but"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/change"
+            app:layout_constraintBottom_toBottomOf="@+id/date_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/date_text" />
+
+        <TextView
+            android:id="@+id/text_choose_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="64dp"
+            android:text="@string/choose_date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/p_view_profile_text" />
+
+        <TextView
+            android:id="@+id/text_choose_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/choose_hour"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_choose_date" />
+
+        <TextView
+            android:id="@+id/date_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/error"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/text_choose_date"
+            app:layout_constraintStart_toEndOf="@+id/text_choose_date"
+            app:layout_constraintTop_toTopOf="@+id/text_choose_date" />
+
+        <TextView
+            android:id="@+id/hour_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/error"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/text_choose_hour"
+            app:layout_constraintStart_toEndOf="@+id/text_choose_hour"
+            app:layout_constraintTop_toTopOf="@+id/text_choose_hour" />
+
+        <Button
+            android:id="@+id/hour_but"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="@string/change"
+            app:layout_constraintBottom_toBottomOf="@+id/hour_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/hour_text" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
