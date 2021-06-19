@@ -32,7 +32,7 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"></activity>
-        <activity android:name=".BookingActivity" />
+        <activity android:name=".BookingActivity1" />
         <activity android:name=".ViewProfileActivity" />
         <activity android:name=".MainMenu" />
         <activity
