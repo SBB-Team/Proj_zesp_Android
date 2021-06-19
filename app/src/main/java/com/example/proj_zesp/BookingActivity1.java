@@ -162,9 +162,22 @@ public class BookingActivity1 extends AppCompatActivity {
         DocumentReference documentReference = FirebaseFirestore.getInstance().collection("booking").document(dateForBooking);
 
 
-        documentReference.get().addOnCompleteListener(@NonNull Task<DocumentSnapshot> task){
+        documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d(TAG, "Document exists!");
 
-        }
+                    } else {
+                        Log.d(TAG, "Document does not exist!");
+                    }
+                } else {
+                    Log.d(TAG, "Failed with: ", task.getException());
+                }
+            }
+        });
     }
 
 
