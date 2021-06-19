@@ -12,12 +12,14 @@ import android.widget.TextView;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainMenu extends AppCompatActivity {
+
+    // Defining instances - start
     private TextView view_profile_text,car_wash_text,location_text,prices_text;
     private  ImageView view_profile_logo,car_wash_booking_logo,location_logo,prices_logo;
-
     private ImageView logo;
-    FirebaseAuth auth;
 
+    FirebaseAuth auth;
+    // Defining instances - finish
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +27,7 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.main_menu);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
-
-
+        // Finding id`s - start
         TextView view_profile_text = (TextView) findViewById(R.id.view_profile_text);
         TextView car_wash_text = (TextView) findViewById(R.id.car_wash_text);
         TextView location_text = (TextView) findViewById(R.id.location_text);
@@ -36,12 +37,14 @@ public class MainMenu extends AppCompatActivity {
         ImageView car_wash_booking_logo = (ImageView) findViewById(R.id.car_wash_booking_logo);
         ImageView location_logo = (ImageView) findViewById(R.id.location_logo);
         ImageView prices_logo = (ImageView) findViewById(R.id.prices_logo);
-
-
-        auth = FirebaseAuth.getInstance();
         ImageView logo = (ImageView) findViewById(R.id.logo);
 
+        // Finding id`s - finish
 
+        // authorization instance
+        auth = FirebaseAuth.getInstance();
+
+        // Logging out from ViewProfile Activity - start
         logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,11 +55,9 @@ public class MainMenu extends AppCompatActivity {
                 finish();
             }
         });
+        // Logging out from ViewProfile Activity - finish
 
-
-
-        //Jump to View Profile Activity
-
+        // Moving to View Profile Activity - start
         view_profile_logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,7 +67,9 @@ public class MainMenu extends AppCompatActivity {
                 finish();
             }
         });
+        // Moving to View Profile Activity - finish
 
+        // Moving to BookingActivity1 - start
         car_wash_booking_logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -75,9 +78,9 @@ public class MainMenu extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
             }
         });
+        // Moving to BookingActivity1 - finish
 
-
-        //Jump to Our Location Activity
+        // Moving to MapsActivity - start
         location_logo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,12 +89,6 @@ public class MainMenu extends AppCompatActivity {
                 overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
             }
         });
-
-
-
-
+        // Moving to MapsActivity - finish
     }
-
-
-
 }
