@@ -36,37 +36,36 @@ import java.util.regex.Pattern;
 
 public class SignUpScreenActivity extends AppCompatActivity {
 
+    // Defining instances - start
     private EditText email = null, password, password2, first_name, last_name;
     private TextView email_e, password_e, password2_e, fname_e, lname_e, privacy;
     private TextView birthday_picker = null;
     private Button signup_btn;
-
     private FirebaseAuth auth;
     private FirebaseFirestore db;
-
     private long date_i = 0;
-
     private static String TAG = "Yuriy";
+    // Defining instances - finish
 
+    // Password validation method - start
     public static boolean isValidPassword(final String password) {
-
         Pattern pattern;
         Matcher matcher;
         final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[@#$%^&+=!])(?=\\S+$).{4,}$";
         pattern = Pattern.compile(PASSWORD_PATTERN);
         matcher = pattern.matcher(password);
-
         return matcher.matches();
     }
+    // Password validation method - finish
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sign_up_screen);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        //
         Log.d(TAG, ">>Sign up screen");
-        //
+
+        //Defining + settings elements - start
         EditText email = (EditText) findViewById(R.id.email);
         email.setHintTextColor(getResources().getColor(R.color.black));
 
@@ -82,22 +81,27 @@ public class SignUpScreenActivity extends AppCompatActivity {
         EditText last_name = (EditText) findViewById(R.id.last_name);
         last_name.setHintTextColor(getResources().getColor(R.color.black));
 
+        TextView birthday_picker = (TextView) findViewById(R.id.bday_pick) ;
+        birthday_picker.setHintTextColor(getResources().getColor(R.color.black));
+
+        // Defining elemets #2 - start
         TextView email_e = (TextView) findViewById(R.id.email_e);
         TextView password_e = (TextView) findViewById(R.id.password_e);
         TextView password2_e = (TextView) findViewById(R.id.password2_e);
         TextView fname_e = (TextView) findViewById(R.id.fname_e);
         TextView lname_e = (TextView) findViewById(R.id.lname_e);
         TextView bday_e = (TextView) findViewById(R.id.bday_e);
-
         signup_btn = (Button) findViewById(R.id.register_bu);
+        TextView privacy = (TextView) findViewById(R.id.privacy);
+
+        // Creating instances for db
 
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
-        //
 
-        TextView birthday_picker = (TextView) findViewById(R.id.bday_pick) ;
-        birthday_picker.setHintTextColor(getResources().getColor(R.color.black));
+        // Defining elemets #2 - finish
 
+        // Date picker - start
         DatePickerDialog.OnDateSetListener listener = new DatePickerDialog.OnDateSetListener() {
             @Override
             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -109,13 +113,13 @@ public class SignUpScreenActivity extends AppCompatActivity {
                 birthday_picker.setText(dayOfMonth+":"+month+":"+year);
             }
         };
+        // Date picker - finish
 
-
+        // Date of virthday picker - start
         birthday_picker.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int year = 2000, month = 0, day = 1;
-
                 DatePickerDialog datePickerDialog = new DatePickerDialog(
                         SignUpScreenActivity.this,
                         android.R.style.Theme_Holo_Light_Dialog_NoActionBar_MinWidth,
@@ -124,8 +128,9 @@ public class SignUpScreenActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
+        // Date of virthday picker - finish
 
-        TextView privacy = (TextView) findViewById(R.id.privacy);
+        // Move to privacy and policy - start
         privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,12 +138,14 @@ public class SignUpScreenActivity extends AppCompatActivity {
                 startActivity(browserIntent);
             }
         });
+        // Move to privacy and policy -  finish
 
-
+        // Signing up - start
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                // Registration fields validation - start
                 if (email.getText().toString().equals("") || email.getText().toString() == null) {
                     email_e.setText("Email field is empty");
                     email_e.setVisibility(View.VISIBLE);
@@ -182,10 +189,13 @@ public class SignUpScreenActivity extends AppCompatActivity {
                     bday_e.setText("Choose date of your birthday");
                     bday_e.setVisibility(View.VISIBLE);
                 }
+                // Registration fields validation - finish
+
+                // Registration - start
                 else {
                     bday_e.setVisibility(View.INVISIBLE);
 
-                    //
+
                     Log.d(TAG,"Rejestracja zaczyna się");
                     auth.createUserWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim())
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
@@ -198,7 +208,6 @@ public class SignUpScreenActivity extends AppCompatActivity {
                                       user.put("last_name", last_name.getText().toString().trim());
                                       user.put("points", 0);
                                       user.put("bday", date_i);
-
                                       Log.d(TAG, "Dodawanie danych użytkownika...");
 
                                       db.collection("users").document(email.getText().toString().trim().toLowerCase())
@@ -224,10 +233,10 @@ public class SignUpScreenActivity extends AppCompatActivity {
                                   }
                               }
                             );
-                    //
+                    // Registration - finish
 
+                    // Logging out and Moving to FirstStartScreen activity
                     auth.signOut();
-
                     Intent i = new Intent(getApplicationContext(), FirstStartScreen.class);
                     startActivity(i);
                     overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
@@ -236,12 +245,11 @@ public class SignUpScreenActivity extends AppCompatActivity {
             }
         });
     }
+    // Signing up - finish
 
     @Override
     public void finish(){
-
         super.finish();
         overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
-
     }
 }
