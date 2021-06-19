@@ -15,6 +15,7 @@ import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -88,7 +89,6 @@ public class BookingActivity1 extends AppCompatActivity {
                 calendar = Calendar.getInstance();
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
                 int month = calendar.get(Calendar.MONTH);     // musi być +1
-                //Log.d(TAG,"month: " + month);
                 int year = calendar.get(Calendar.YEAR);
 
                 datePickerDialog = new DatePickerDialog(BookingActivity1.this, new DatePickerDialog.OnDateSetListener() {
@@ -107,8 +107,6 @@ public class BookingActivity1 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 calendar = Calendar.getInstance();
-
-                Log.d(TAG,"Hour_but clicked");
 
                 timePickerDialog = new TimePickerDialog(BookingActivity1.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
@@ -131,7 +129,42 @@ public class BookingActivity1 extends AppCompatActivity {
     }
 
     private void check_availability_meth(){
+        String dateForBooking = "";
 
+
+        switch (station_spinner.getSelectedItem().toString()){
+            case "station1":
+                dateForBooking+="1_";
+                break;
+            case "station2":
+                dateForBooking+="2_";
+                break;
+        }
+
+        if(date_text != null && !hour_text.getText().equals("") && !date_text.getText().equals("- error -")){
+            dateForBooking += date_text.getText().subSequence(0,3) + ":";
+            dateForBooking += date_text.getText().subSequence(5,6) + ":";
+            dateForBooking += date_text.getText().subSequence(8,9);
+        }else{
+            Toast toast = Toast.makeText(getApplicationContext(), "Choose data for your booking", Toast.LENGTH_LONG);
+            toast.show();
+        }
+
+        Log.d(TAG,"Hour: _"+ hour_text.getText() +"_");
+        if(hour_text != null && !hour_text.getText().equals("") && !hour_text.getText().equals("- error -")){
+            dateForBooking += hour_text.getText();
+        }else{
+            Toast toast = Toast.makeText(getApplicationContext(), "Choose hour for your booking", Toast.LENGTH_LONG);
+            toast.show();
+        }
+
+        Log.d(TAG,"Choosed data: " + dateForBooking);
+        DocumentReference documentReference = FirebaseFirestore.getInstance().collection("booking").document(dateForBooking);
+
+
+        documentReference.get().addOnCompleteListener(@NonNull Task<DocumentSnapshot> task){
+
+        }
     }
 
 

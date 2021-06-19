@@ -52,7 +52,7 @@ public class ViewProfileActivity extends AppCompatActivity {
                         Log.d(TAG, "No such document");
                     }
                 } else {
-                    Log.d(TAG, "get failed with ", task.getException());
+                    Log.d(TAG, "get failed with ", task.getException());//
                 }
             }
         });
