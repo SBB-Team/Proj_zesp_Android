@@ -17,7 +17,6 @@ public class MainMenu extends AppCompatActivity {
     private TextView view_profile_text,car_wash_text,location_text,prices_text;
     private  ImageView view_profile_logo,car_wash_booking_logo,location_logo,prices_logo;
     private ImageView logo;
-
     FirebaseAuth auth;
     // Defining instances - finish
 
@@ -38,7 +37,6 @@ public class MainMenu extends AppCompatActivity {
         ImageView location_logo = (ImageView) findViewById(R.id.location_logo);
         ImageView prices_logo = (ImageView) findViewById(R.id.prices_logo);
         ImageView logo = (ImageView) findViewById(R.id.logo);
-
         // Finding id`s - finish
 
         // authorization instance

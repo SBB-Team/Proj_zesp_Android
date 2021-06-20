@@ -37,7 +37,6 @@ public class FirstStartScreen extends AppCompatActivity {
     FirebaseFirestore db;
     DatabaseReference users;
     String email_s, password_s, first_name_s, last_name_s;
-
     private static String TAG = "Yuriy";
 
     private void showRegScreen(){
@@ -51,31 +50,26 @@ public class FirstStartScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_start_screen);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        Log.d(TAG,">>Login screen");
+
+        Log.d(TAG,">>Log in screen");
 
         Button signin_btn = (Button) findViewById(R.id.login_butto);
         Button signup_btn = (Button) findViewById(R.id.register_bu);
-
         EditText email = (EditText) findViewById(R.id.email);
         EditText password = (EditText) findViewById(R.id.password);
         TextView privacy = (TextView) findViewById(R.id.privacy);
-
         password.setHintTextColor(getResources().getColor(R.color.black));
         email.setHintTextColor(getResources().getColor(R.color.black));
 
 
-
-
-
         auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null){
-            Log.d(TAG, "Zalogowany email: " + auth.getCurrentUser().getEmail());
+            Log.d(TAG, "Logged in using: " + auth.getCurrentUser().getEmail());
             Intent i = new Intent(getApplicationContext(), MainMenu.class);
             overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
             startActivity(i);
             finish();
         }
-
 
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,7 +78,6 @@ public class FirstStartScreen extends AppCompatActivity {
             }
         });
 
-
         privacy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,10 +85,6 @@ public class FirstStartScreen extends AppCompatActivity {
                 startActivity(browserIntent);
                     }
                 });
-
-
-
-
 
         signin_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,22 +98,20 @@ public class FirstStartScreen extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                Log.d(TAG,"Udało się zalogować");
+                                Log.d(TAG,"Authorization failed");
                                 Intent i = new Intent(getApplicationContext(), MainMenu.class);
                                 startActivity(i);
                                 overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
                                 finish();
                             }else{
-                                Log.d(TAG,"Nie udało się zalogować, bo: "+task.getException().getMessage());
+                                Log.d(TAG,"Authorization failed. Issue - "+task.getException().getMessage());
                                 Toast toast = Toast.makeText(getApplicationContext(),
-                                        "Hasło albo login jest nie poprawny lub \n konta nie istnieje", Toast.LENGTH_SHORT);
+                                        "E-mail or password is incorrect or \n account does not exist", Toast.LENGTH_SHORT);
                                 toast.show();
-
                                 if (auth.getCurrentUser() != null) {
-                                    Log.d(TAG, "Zalogowany Użytkownik: " + auth.getCurrentUser().getEmail());
+                                    Log.d(TAG, "Logged in using : " + auth.getCurrentUser().getEmail());
                                 }
                             }
-
                         }
                     }
                 );

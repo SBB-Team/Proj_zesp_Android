@@ -175,7 +175,7 @@ public class BookingActivity1 extends AppCompatActivity {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
                         Log.d(TAG, "Date already booked");
-                        Toast toast = Toast.makeText(getApplicationContext(), "Choosen date is already booked", Toast.LENGTH_LONG);
+                        Toast toast = Toast.makeText(getApplicationContext(), "Chosen date is already booked", Toast.LENGTH_LONG);
                         toast.show();
                     } else {
                         Log.d(TAG, "Date is free");

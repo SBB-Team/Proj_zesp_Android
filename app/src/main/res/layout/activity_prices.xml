@@ -51,11 +51,14 @@
             android:id="@+id/paliwo1_cena"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="160dp"
             android:layout_marginTop="100dp"
             android:layout_marginEnd="25dp"
+            android:fontFamily="@font/acme"
             android:text="@string/paliwo1_cena"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/paliwo1"
             app:layout_constraintTop_toBottomOf="@+id/p_view_profile_text" />
 
         <TextView
@@ -64,10 +67,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="100dp"
-            android:layout_marginEnd="125dp"
+            android:fontFamily="@font/acme"
             android:text="@string/paliwo1"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/paliwo1_cena"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/p_view_profile_text" />
 
@@ -75,11 +77,14 @@
             android:id="@+id/paliwo2_cena"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="170dp"
             android:layout_marginTop="100dp"
             android:layout_marginEnd="25dp"
+            android:fontFamily="@font/acme"
             android:text="@string/paliwo2_cena"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/paliwo2"
             app:layout_constraintTop_toBottomOf="@+id/paliwo1_cena" />
 
         <TextView
@@ -88,10 +93,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="100dp"
-            android:layout_marginEnd="125dp"
+            android:fontFamily="@font/acme"
             android:text="@string/paliwo2"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/paliwo2_cena"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/paliwo1" />
 
@@ -99,11 +103,14 @@
             android:id="@+id/paliwo3_cena"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
             android:layout_marginTop="100dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="25dp"
+            android:fontFamily="@font/acme"
             android:text="@string/paliwo3_cena"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/paliwo3"
             app:layout_constraintTop_toBottomOf="@+id/paliwo2_cena" />
 
         <TextView
@@ -112,10 +119,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="100dp"
-            android:layout_marginEnd="125dp"
+            android:fontFamily="@font/acme"
             android:text="@string/paliwo3"
             android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/paliwo3_cena"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/paliwo2" />
 
@@ -123,13 +129,16 @@
             android:id="@+id/paliwo4_cena"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="150dp"
             android:layout_marginTop="100dp"
-            android:layout_marginEnd="24dp"
+            android:layout_marginEnd="25dp"
             android:layout_marginBottom="175dp"
+            android:fontFamily="@font/acme"
             android:text="@string/paliwo4_cena"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/paliwo4"
             app:layout_constraintTop_toBottomOf="@+id/paliwo3_cena" />
 
         <TextView
@@ -138,12 +147,11 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="25dp"
             android:layout_marginTop="100dp"
-            android:layout_marginEnd="125dp"
             android:layout_marginBottom="175dp"
+            android:fontFamily="@font/acme"
             android:text="@string/paliwo4"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/paliwo4_cena"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/paliwo3" />
 

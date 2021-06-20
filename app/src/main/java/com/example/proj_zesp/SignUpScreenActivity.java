@@ -95,10 +95,8 @@ public class SignUpScreenActivity extends AppCompatActivity {
         TextView privacy = (TextView) findViewById(R.id.privacy);
 
         // Creating instances for db
-
         db = FirebaseFirestore.getInstance();
         auth = FirebaseAuth.getInstance();
-
         // Defining elemets #2 - finish
 
         // Date picker - start
@@ -196,7 +194,7 @@ public class SignUpScreenActivity extends AppCompatActivity {
                     bday_e.setVisibility(View.INVISIBLE);
 
 
-                    Log.d(TAG,"Rejestracja zaczyna się");
+                    Log.d(TAG,"Sign up has begun");
                     auth.createUserWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim())
                             .addOnSuccessListener(new OnSuccessListener<AuthResult>() {
                                   @Override
@@ -208,25 +206,25 @@ public class SignUpScreenActivity extends AppCompatActivity {
                                       user.put("last_name", last_name.getText().toString().trim());
                                       user.put("points", 0);
                                       user.put("bday", date_i);
-                                      Log.d(TAG, "Dodawanie danych użytkownika...");
+                                      Log.d(TAG, "Adding users data");
 
                                       db.collection("users").document(email.getText().toString().trim().toLowerCase())
                                               .set(user)
                                               .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                   @Override
                                                   public void onSuccess(Void aVoid) {
-                                                      Log.d(TAG, "Dane użytkownika zostały dodane!");
+                                                      Log.d(TAG, "Data has been added");
                                                   }
                                               })
                                               .addOnFailureListener(new OnFailureListener() {
                                                   @Override
                                                   public void onFailure(@NonNull Exception e) {
-                                                      Log.w(TAG, "Pomyłka przy dodaniu danych użytkownika", e);
+                                                      Log.w(TAG, "Error during user`s data adding", e);
                                                   }
                                               }).addOnCanceledListener(new OnCanceledListener() {
                                                                            @Override
                                                                            public void onCanceled() {
-                                                                               Log.d(TAG, "Dodanie danych użytkowników anulowane");
+                                                                               Log.d(TAG, "Canceling...");
                                                                            }
                                                                        }
                                       );

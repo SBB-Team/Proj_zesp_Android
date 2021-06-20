@@ -43,7 +43,7 @@ public class ViewProfileActivity extends AppCompatActivity {
     //  Getter from db to TextView`s - start
     private void getDataAndSetTexts(String current_user){
         db = FirebaseFirestore.getInstance();
-        Log.d(TAG, "Pobieranie danych");
+        Log.d(TAG, "Getting data");
         DocumentReference docRef = db.collection("users").document(current_user);
         docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
             @Override

@@ -3,7 +3,9 @@ package com.example.proj_zesp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
@@ -24,6 +26,7 @@ public class PricesActivity extends AppCompatActivity {
     private FirebaseFirestore db;
     private FirebaseAuth auth;
     private DocumentSnapshot document;
+    private ProgressDialog dialog;
 
     private void getDataAndSetTexts(String current_user){
         db = FirebaseFirestore.getInstance();
@@ -53,10 +56,10 @@ public class PricesActivity extends AppCompatActivity {
     private void setTexts(){
 
         //Text setters - start
-        paliwo1_cena.setText(document.getString(" "));
-        paliwo2_cena.setText(document.getString(" "));
-        paliwo3_cena.setText(document.getString(" "));
-        paliwo4_cena.setText(document.getString(" "));
+        paliwo1_cena.setText(document.getString("LPG"));
+        paliwo2_cena.setText(document.getString("ON"));
+        paliwo3_cena.setText(document.getString("PB95"));
+        paliwo4_cena.setText(document.getString("PB98"));
         // Text setters - finish
     }
 
@@ -69,7 +72,24 @@ public class PricesActivity extends AppCompatActivity {
         paliwo2_cena = (TextView) findViewById(R.id.paliwo2_cena);
         paliwo3_cena = (TextView) findViewById(R.id.paliwo3_cena);
         paliwo4_cena = (TextView) findViewById(R.id.paliwo4_cena);
+
         getDataAndSetTexts(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+
+        // Loading dialog - start
+        dialog = new ProgressDialog(PricesActivity.this);
+        dialog.setMessage("Loading prices...");
+        dialog.show();
+        dialog.setCancelable(false);
+        // Loading dialog - finish
+
+        //Handler (waiting for 2 seconds before dialog disappears) - start
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                dialog.dismiss();
+            }
+        }, 2000);
+        //Handler (waiting for 2 seconds before dialog disappears) - finish
 
     }
 

@@ -25,15 +25,15 @@
     <string name="title_activity_maps">Map</string>
     <string name="logout_btn">Logout</string>
 
-    <string name="paliwo1">Paliwo1</string>
-    <string name="paliwo1_cena">Paliwo1 Cena</string>
+    <string name="paliwo1">LPG</string>
+    <string name="paliwo1_cena">Paliwo1_Cena</string>
 
-    <string name="paliwo2">Paliwo2</string>
-    <string name="paliwo2_cena">Paliwo2-Cena</string>
+    <string name="paliwo2">ON</string>
+    <string name="paliwo2_cena">Paliwo2_Cena</string>
 
-    <string name="paliwo3">Paliwo3</string>
-    <string name="paliwo3_cena">Paliwo3-Cena</string>
+    <string name="paliwo3">PB95</string>
+    <string name="paliwo3_cena">Paliwo3_Cena</string>
 
-    <string name="paliwo4">Paliwo4</string>
-    <string name="paliwo4_cena">Paliwo4-Cena</string>
+    <string name="paliwo4">PB98</string>
+    <string name="paliwo4_cena">Paliwo4_Cena</string>
 </resources>
