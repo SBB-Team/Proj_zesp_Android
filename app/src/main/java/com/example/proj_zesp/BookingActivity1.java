@@ -4,8 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
+import android.app.ProgressDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -44,6 +48,7 @@ public class BookingActivity1 extends AppCompatActivity {
     private Calendar calendar;
     private DatePickerDialog datePickerDialog;
     private TimePickerDialog timePickerDialog;
+    private ProgressDialog dialog;
 
     private Button check_availability,date_but,hour_but;
     private TextView date_text, hour_text;
@@ -71,6 +76,23 @@ public class BookingActivity1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking1);
         Log.d(TAG,">>Booking screen 1");
+
+        // Loading dialog - start
+        dialog = new ProgressDialog(BookingActivity1.this);
+        dialog.setMessage("Loading information about stations...");
+        dialog.show();
+        dialog.setCancelable(false);
+        // Loading dialog - finish
+
+        //Handler (waiting for 2 seconds before dialog disappears) - start
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                dialog.dismiss();
+            }
+        }, 2000);
+        //Handler (waiting for 2 seconds before dialog disappears) - finish
+
 
         check_availability = (Button) findViewById(R.id.check_av_but);
         date_but = (Button) findViewById(R.id.date_but);

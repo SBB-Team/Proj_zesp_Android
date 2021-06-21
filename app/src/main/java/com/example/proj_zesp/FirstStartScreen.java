@@ -90,7 +90,7 @@ public class FirstStartScreen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (email.getText().toString().equals("") || email.getText() == null || password.getText().toString().equals("") || password.getText()==null){
-                    Log.d(TAG, "Coś jest puste");
+                    Log.d(TAG, "something is missing");
                     return;
                 }
                 auth.signInWithEmailAndPassword(email.getText().toString().trim(),password.getText().toString().trim())
