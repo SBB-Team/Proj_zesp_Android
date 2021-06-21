@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -25,6 +26,7 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+
 
         // Finding id`s - start
         TextView view_profile_text = (TextView) findViewById(R.id.view_profile_text);
