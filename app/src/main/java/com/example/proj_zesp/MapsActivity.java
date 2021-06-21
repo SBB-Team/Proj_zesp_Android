@@ -24,7 +24,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private MarkerOptions options = new MarkerOptions();
     LatLng Krakow = new LatLng(50.08, 19.99);
     LatLng GS1 =new LatLng(50.086876, 19.990734);
-    LatLng GS2 =new LatLng(50.072092, 19.983849);
+        LatLng GS2 =new LatLng(50.072092, 19.983849);
     LatLng GS3 =new LatLng(50.070595, 20.042382);
 
     private ArrayList<LatLng> GasStaionList;

@@ -73,8 +73,8 @@ public class BookingActivity1 extends AppCompatActivity {
 
         getStations();
 
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adapter = new ArrayAdapter<String>(this, R.layout.my_selected_dropdown_item);
+        adapter.setDropDownViewResource(R.layout.my_selected_item);
         station_spinner = (Spinner) findViewById(R.id.station_spinner);
         station_spinner.setAdapter(adapter);
 
