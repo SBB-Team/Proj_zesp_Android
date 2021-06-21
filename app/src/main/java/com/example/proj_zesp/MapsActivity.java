@@ -3,7 +3,10 @@ package com.example.proj_zesp;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.FragmentActivity;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,14 +20,14 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.ArrayList;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
+    private ProgressDialog dialog;
     private GoogleMap mMap;
     private static String TAG = "Yuriy";
-
     private MarkerOptions options = new MarkerOptions();
+
     LatLng Krakow = new LatLng(50.08, 19.99);
     LatLng GS1 =new LatLng(50.086876, 19.990734);
-        LatLng GS2 =new LatLng(50.072092, 19.983849);
+    LatLng GS2 =new LatLng(50.072092, 19.983849);
     LatLng GS3 =new LatLng(50.070595, 20.042382);
 
     private ArrayList<LatLng> GasStaionList;
@@ -34,6 +37,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+
+        // Loading dialog - start
+        dialog = new ProgressDialog(MapsActivity.this);
+        dialog.setMessage("Loading...");
+        dialog.show();
+        dialog.setCancelable(false);
+        // Loading dialog - finish
+
+        //Handler (waiting for 2 seconds before dialog disappears) - start
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                dialog.dismiss();
+            }
+        }, 1500);
+        //Handler (waiting for 2 seconds before dialog disappears) - finish
 
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -68,6 +87,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         super.finish();
         overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent i = new Intent(getApplicationContext(), MainMenu.class);
+        startActivity(i);
+        // FIX ANIMATION
+        overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
+        // FIX ANIMATION
+
+        finish();
 
     }
 }

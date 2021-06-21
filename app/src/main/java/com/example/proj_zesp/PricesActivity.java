@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -97,6 +98,20 @@ public class PricesActivity extends AppCompatActivity {
     public void finish(){
         super.finish();
         overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent i = new Intent(getApplicationContext(), MainMenu.class);
+        startActivity(i);
+        // FIX ANIMATION
+        overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
+        // FIX ANIMATION
+
+        finish();
 
     }
 }

@@ -37,7 +37,7 @@ public class ViewProfileActivity extends AppCompatActivity {
     private static String TAG = "Yuriy";
     private FirebaseAuth auth;
     private DocumentSnapshot document;
-    ProgressDialog dialog;
+    private ProgressDialog dialog;
     // Creating instances - finish
 
     //  Getter from db to TextView`s - start
@@ -124,7 +124,7 @@ public class ViewProfileActivity extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), FirstStartScreen.class);
                 startActivity(i);
                 overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
-                finish();
+
             }
         });
         // LOGOUT ON CLICK METHOD - finish
@@ -134,6 +134,20 @@ public class ViewProfileActivity extends AppCompatActivity {
     public void finish(){
         super.finish();
         overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent i = new Intent(getApplicationContext(), MainMenu.class);
+        startActivity(i);
+        // FIX ANIMATION
+        overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
+        // FIX ANIMATION
+
+        finish();
 
     }
 }
