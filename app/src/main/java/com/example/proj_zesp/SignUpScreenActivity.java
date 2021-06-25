@@ -25,9 +25,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.text.SimpleDateFormat;
-import java.time.ZoneId;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -75,7 +72,7 @@ public class SignUpScreenActivity extends AppCompatActivity {
         EditText password2 = (EditText) findViewById(R.id.password2);
         password2.setHintTextColor(getResources().getColor(R.color.black));
 
-        EditText first_name = (EditText) findViewById(R.id.first_name);
+        EditText first_name = (EditText) findViewById(R.id.first_name1);
         first_name.setHintTextColor(getResources().getColor(R.color.black));
 
         EditText last_name = (EditText) findViewById(R.id.last_name);
@@ -91,7 +88,7 @@ public class SignUpScreenActivity extends AppCompatActivity {
         TextView fname_e = (TextView) findViewById(R.id.fname_e);
         TextView lname_e = (TextView) findViewById(R.id.lname_e);
         TextView bday_e = (TextView) findViewById(R.id.bday_e);
-        signup_btn = (Button) findViewById(R.id.register_bu);
+        signup_btn = (Button) findViewById(R.id.change_but);
         TextView privacy = (TextView) findViewById(R.id.privacy);
 
         // Creating instances for db

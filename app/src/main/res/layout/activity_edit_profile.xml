@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".SignUpScreenActivity">
+    tools:context=".EditProfileActivity">
     <!---->
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -41,7 +41,7 @@
             android:paddingLeft="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email" />
+            app:layout_constraintTop_toBottomOf="@+id/logo" />
 
         <!-- password2 -->
         <EditText
@@ -114,20 +114,6 @@
 
 
         <!-- Email -->
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="321dp"
-            android:layout_height="47dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="16dp"
-            android:background="#0d000000"
-            android:fontFamily="@font/acme"
-            android:hint="@string/email"
-            android:paddingLeft="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logo" />
 
 
         <!-- Login button -->
@@ -170,7 +156,7 @@
             android:layout_height="55dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/acme"
-            android:text="@string/Log_but_sign_up"
+            android:text="@string/Change"
             app:backgroundTint="#79ADF6"
             app:layout_constraintBottom_toTopOf="@+id/privacy"
             app:layout_constraintEnd_toEndOf="parent"
@@ -180,21 +166,6 @@
         <!--    Text: "Dont have an account"-->
 
         <!--    Mail icon-->
-        <ImageView
-            android:id="@+id/mail_icon_p"
-            android:layout_width="50dp"
-            android:layout_height="35dp"
-            android:layout_alignParentTop="true"
-            android:background="@drawable/mail_icon"
-            android:scaleX="0.65"
-            android:scaleY="0.65"
-            android:src="@drawable/mail_icon"
-            android:visibility="visible"
-            app:layout_constraintBottom_toBottomOf="@+id/email"
-            app:layout_constraintEnd_toEndOf="@+id/email"
-            app:layout_constraintTop_toTopOf="@+id/email"
-            app:srcCompat="@drawable/mail_icon"
-            tools:srcCompat="@drawable/mail_icon" />
 
         <!--    Lock icon-->
         <ImageView
@@ -228,16 +199,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@drawable/privacy_background" />
-
-        <TextView
-            android:id="@+id/email_e"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/error"
-            android:textColor="@android:color/holo_red_dark"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@+id/email"
-            app:layout_constraintStart_toStartOf="@+id/email" />
 
         <TextView
             android:id="@+id/password_e"

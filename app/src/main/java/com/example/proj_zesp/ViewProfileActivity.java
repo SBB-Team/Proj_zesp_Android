@@ -33,6 +33,8 @@ import java.util.Locale;
 public class ViewProfileActivity extends AppCompatActivity {
     // Creating instances - start
     private TextView first_name, last_name, email, points_of_loyalty, date_of_birthday;
+    private ImageView logo;
+    private Button logout_btn, edit_prof_btn;
     private FirebaseFirestore db;
     private static String TAG = "Yuriy";
     private FirebaseAuth auth;
@@ -53,6 +55,7 @@ public class ViewProfileActivity extends AppCompatActivity {
                     if (document.exists()) {
                         Log.d(TAG, "DocumentSnapshot data: " + document.getData());
                         setTexts();
+                        dialog.dismiss();
                     } else {
                         Log.d(TAG, "No such document");
                     }
@@ -110,8 +113,10 @@ public class ViewProfileActivity extends AppCompatActivity {
         email = (TextView) findViewById(R.id.pt_email);
         points_of_loyalty = (TextView) findViewById(R.id.pt_points);
         date_of_birthday = (TextView) findViewById(R.id.pt_birthday);
-        ImageView logo = (ImageView) findViewById(R.id.logo);
-        Button logout_btn = (Button) findViewById(R.id.logout_btn);
+        logo = (ImageView) findViewById(R.id.logo);
+        logout_btn = (Button) findViewById(R.id.logout_btn);
+        edit_prof_btn = (Button) findViewById(R.id.edit_prof_btn);
+        Log.d(TAG,"Current user: " + FirebaseAuth.getInstance().getCurrentUser().getEmail());
         getDataAndSetTexts(FirebaseAuth.getInstance().getCurrentUser().getEmail());
         //Creating instances - finish
 
@@ -120,14 +125,30 @@ public class ViewProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 auth.signOut();
-                finish();
+                Log.d(TAG, "Log out");
+
                 Intent i = new Intent(getApplicationContext(), FirstStartScreen.class);
                 startActivity(i);
+                finish();
                 overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
 
             }
         });
         // LOGOUT ON CLICK METHOD - finish
+
+
+        // EDIT PROFILE ON CLICK METHOD - start
+        edit_prof_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent i = new Intent(getApplicationContext(), EditProfileActivity.class);
+                startActivity(i);
+                finish();
+                overridePendingTransition(R.anim.slide_to_left, R.anim.slide_from_right);
+            }
+        });
+        // EDIT PROFILE ON CLICK METHOD - finish
     }
 
     @Override

@@ -37,4 +37,7 @@
 
     <string name="paliwo4">PB98</string>
     <string name="paliwo4_cena">Paliwo4_Cena</string>
+    <string name="hint_for_pass2">New password(optional)</string>
+    <string name="edit_prof_btn">Edit profile</string>
+    <string name="Change">Change</string>
 </resources>

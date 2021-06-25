@@ -15,19 +15,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class FirstStartScreen extends AppCompatActivity {
     TextView privacy;
@@ -54,7 +47,7 @@ public class FirstStartScreen extends AppCompatActivity {
         Log.d(TAG,">>Log in screen");
 
         Button signin_btn = (Button) findViewById(R.id.login_butto);
-        Button signup_btn = (Button) findViewById(R.id.register_bu);
+        Button signup_btn = (Button) findViewById(R.id.change_but);
         EditText email = (EditText) findViewById(R.id.email);
         EditText password = (EditText) findViewById(R.id.password);
         TextView privacy = (TextView) findViewById(R.id.privacy);
@@ -98,7 +91,7 @@ public class FirstStartScreen extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
-                                Log.d(TAG,"Authorization failed");
+                                Log.d(TAG,"Authorization successful");
                                 Intent i = new Intent(getApplicationContext(), MainMenu.class);
                                 startActivity(i);
                                 overridePendingTransition(R.anim.slide_to_right, R.anim.slide_from_left);
