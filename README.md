@@ -6,7 +6,7 @@ Our project "Gas Station" is an android app for a fictional stations with opport
 - check prices for available fuels
 
 <p>Language: Java</p>
-IDE: Android Studio
-Database: Firebase by Google
+<p>IDE: Android Studio</p>
+<p>Database: Firebase by Google</p>
 
 Video preview : https://drive.google.com/file/d/183Jy_wSKxv0YJvnNWYHOVlQHOHgfqGOt/view?usp=drivesdk
